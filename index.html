@@ -89,7 +89,6 @@
         .delete-img-btn:hover { opacity: 1 !important; }
         .vision-image-card.has-image:hover { filter: brightness(0.95); }
 
-        /* Accordion custom styling */
         details > summary::-webkit-details-marker { display: none; }
     </style>
 </head>
@@ -100,27 +99,27 @@
             <h2 id="authTitle" class="text-2xl sm:text-3xl font-bold text-brand-purple mb-2 text-center">Вход</h2>
             <p id="authSubtitle" class="text-slate-500 dark:text-slate-400 text-xs sm:text-sm text-center mb-6 sm:mb-8">Войдите, чтобы синхронизировать прогресс</p>
             
-            <div class="space-y-4">
+            <form id="authForm" class="space-y-4">
                 <div id="nameFieldGroup" class="hidden">
                     <label class="block text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1">Ваше Имя</label>
                     <input type="text" id="authName" class="w-full bg-slate-50 dark:bg-[#0f0f1a] rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-brand-purple/50 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="Например: Иван Иванов">
                 </div>
                 <div>
                     <label class="block text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1">Email</label>
-                    <input type="email" id="authEmail" class="w-full bg-slate-50 dark:bg-[#0f0f1a] rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-brand-purple/50 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="your@email.com">
+                    <input type="email" id="authEmail" class="w-full bg-slate-50 dark:bg-[#0f0f1a] rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-brand-purple/50 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="your@email.com" required>
                 </div>
                 <div>
                     <label class="block text-[10px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1">Пароль</label>
-                    <input type="password" id="authPassword" class="w-full bg-slate-50 dark:bg-[#0f0f1a] rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-brand-purple/50 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="Минимум 6 символов">
+                    <input type="password" id="authPassword" class="w-full bg-slate-50 dark:bg-[#0f0f1a] rounded-xl p-3 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-brand-purple/50 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500" placeholder="Минимум 6 символов" required minlength="6">
                 </div>
                 
                 <p id="authErrorMsg" class="text-rose-500 text-xs font-bold text-center hidden"></p>
                 
                 <div class="pt-2 sm:pt-4 flex flex-col gap-2 sm:gap-3">
-                    <button id="btnSubmitAuth" class="w-full bg-brand-purple hover:bg-indigo-600 text-white rounded-xl py-3 sm:py-3.5 text-sm font-bold transition-colors shadow-md">Войти</button>
-                    <button id="btnToggleAuth" class="w-full text-slate-500 dark:text-slate-400 text-[10px] sm:text-xs font-bold hover:text-brand-purple transition-colors mt-1 sm:mt-2 p-2">Нет аккаунта? Регистрация</button>
+                    <button type="submit" id="btnSubmitAuth" class="w-full bg-brand-purple hover:bg-indigo-600 text-white rounded-xl py-3 sm:py-3.5 text-sm font-bold transition-colors shadow-md outline-none">Войти</button>
+                    <button type="button" id="btnToggleAuth" class="w-full text-slate-500 dark:text-slate-400 text-[10px] sm:text-xs font-bold hover:text-brand-purple transition-colors mt-1 sm:mt-2 p-2 outline-none">Нет аккаунта? Регистрация</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 
@@ -217,7 +216,7 @@
                         <div class="flex-1 h-2 bg-slate-800 dark:bg-[#0f0f1a] rounded-full overflow-hidden">
                             <div id="dashBlockBBar" class="h-full transition-all duration-700" style="width: 0%"></div>
                         </div>
-                        <span class="text-xs sm:text-sm font-bold" id="dashBlockBPct">0%</span>
+                        <span class="text-xs sm:text-sm font-bold text-white" id="dashBlockBPct">0%</span>
                     </div>
                     <span class="text-[10px] sm:text-xs text-slate-400 shrink-0 w-full sm:w-auto text-right sm:text-left">Цель: >85%</span>
                 </div>
@@ -227,7 +226,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full mb-6" id="dashboardWorkspace">
-                    
                     <div class="bg-white dark:bg-dark-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-slate-100 dark:border-slate-800/50 flex flex-col transition-colors">
                         <div class="flex justify-between items-center mb-5 sm:mb-6 border-b border-slate-100 dark:border-slate-800/50 pb-3">
                             <h4 class="text-[11px] text-slate-400 uppercase tracking-[1.5px] font-semibold">Тактики этой недели</h4>
@@ -362,7 +360,7 @@
             </div>
 
             <div id="page-rewards" class="page-view w-full">
-                <div class="bg-white dark:bg-dark-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-slate-100 dark:border-slate-800/50 mb-6 sm:mb-8 w-full min-w-0 transition-colors">
+                <div class="bg-white dark:bg-dark-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 shadow-sm border border-slate-100 dark:border-slate-800/50 mb-6 sm:mb-8 w-full min-w-0 transition-colors">
                     <div class="flex flex-col lg:flex-row justify-between items-start mb-4 sm:mb-8 border-b border-slate-100 dark:border-slate-800/50 pb-4 sm:pb-6 gap-3 sm:gap-4 w-full">
                         <div class="w-full min-w-0">
                             <h2 class="text-xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100">Система поощрений</h2>
@@ -397,11 +395,11 @@
             </div>
 
             <div id="page-reflection" class="page-view w-full">
-                <div class="bg-white dark:bg-dark-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-slate-100 dark:border-slate-800/50 mb-6 sm:mb-8 w-full min-w-0 transition-colors">
+                <div class="bg-white dark:bg-dark-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 shadow-sm border border-slate-100 dark:border-slate-800/50 mb-6 sm:mb-8 w-full min-w-0 transition-colors">
                     <div class="flex flex-col lg:flex-row justify-between items-start mb-5 sm:mb-10 border-b border-slate-100 dark:border-slate-800/50 pb-4 sm:pb-8 gap-3 sm:gap-4 w-full">
                         <div class="w-full min-w-0">
                             <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
-                                <span class="text-[9px] sm:text-[10px] font-bold bg-brand-purple/10 text-brand-purple px-1.5 sm:px-2 py-0.5 sm:py-1 rounded uppercase tracking-wider" id="reflectBlockLabel">Блок 1</span>
+                                <span class="text-[9px] sm:text-[10px] font-bold bg-brand-purple/10 dark:bg-indigo-500/20 text-brand-purple dark:text-indigo-400 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded uppercase tracking-wider" id="reflectBlockLabel">Блок 1</span>
                                 <span class="text-[9px] sm:text-[10px] text-slate-400 font-medium" id="reflectWeekDates">--</span>
                             </div>
                             <h2 class="text-xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 truncate" id="reflectWeekTitle">Рефлексия недели</h2>
@@ -713,8 +711,14 @@
             // ИНИЦИАЛИЗАЦИЯ SUPABASE
             const SUPABASE_URL = 'https://hcoaqgwljocbwrlidnfd.supabase.co'; 
             const SUPABASE_ANON_KEY = 'sb_publishable_2pWqV2in9nXcA-Xi-GZMYg_ozrD_ueb';
-            const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
             
+            // Защита если Supabase не загрузился
+            if (typeof window.supabase === 'undefined') {
+                alert('Ошибка загрузки базы данных. Пожалуйста, проверьте интернет-соединение или отключите блокировщик рекламы.');
+                return;
+            }
+            
+            const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
             let currentUser = null;
 
             // ЭЛЕМЕНТЫ АВТОРИЗАЦИИ
@@ -723,69 +727,76 @@
             const passInput = document.getElementById('authPassword');
             const nameInput = document.getElementById('authName');
             const errorMsg = document.getElementById('authErrorMsg');
+            const btnSubmitAuth = document.getElementById('btnSubmitAuth');
+            const authForm = document.getElementById('authForm');
             
             let authMode = 'login';
+            let authErrorTimer;
 
             const showAuthError = (msg) => {
+                clearTimeout(authErrorTimer);
                 errorMsg.innerText = msg;
                 errorMsg.classList.remove('hidden');
-                setTimeout(() => errorMsg.classList.add('hidden'), 5000);
+                authErrorTimer = setTimeout(() => errorMsg.classList.add('hidden'), 5000);
             };
 
             document.getElementById('btnToggleAuth').addEventListener('click', () => {
                 authMode = authMode === 'login' ? 'signup' : 'login';
                 document.getElementById('nameFieldGroup').style.display = authMode === 'signup' ? 'block' : 'none';
                 document.getElementById('authTitle').innerText = authMode === 'signup' ? 'Регистрация' : 'Вход';
-                document.getElementById('authSubtitle').innerText = authMode === 'signup' ? 'Создайте аккаунт для облачной синхронизации' : 'Войдите, чтобы синхронизировать прогресс';
-                document.getElementById('btnSubmitAuth').innerText = authMode === 'signup' ? 'Зарегистрироваться' : 'Войти';
+                document.getElementById('authSubtitle').innerText = authMode === 'signup' ? 'У вас пустая база данных. Создайте аккаунт.' : 'Войдите, чтобы синхронизировать прогресс';
+                btnSubmitAuth.innerText = authMode === 'signup' ? 'Зарегистрироваться' : 'Войти';
                 document.getElementById('btnToggleAuth').innerText = authMode === 'signup' ? 'Уже есть аккаунт? Войти' : 'Нет аккаунта? Регистрация';
                 errorMsg.classList.add('hidden');
             });
 
-            document.getElementById('btnSubmitAuth').addEventListener('click', async () => {
+            // Обработка формы через submit (теперь работает Enter!)
+            authForm.addEventListener('submit', async (e) => {
+                e.preventDefault(); // Останавливаем перезагрузку страницы
+                
                 const email = emailInput.value.trim();
                 const password = passInput.value;
                 const name = nameInput.value.trim();
                 
                 if (!email || password.length < 6) return showAuthError("Введите email и пароль (мин. 6 символов)");
                 
-                document.getElementById('btnSubmitAuth').innerText = "Загрузка...";
-                document.getElementById('btnSubmitAuth').disabled = true;
+                const originalBtnText = btnSubmitAuth.innerText;
+                btnSubmitAuth.innerText = "Загрузка...";
+                btnSubmitAuth.disabled = true;
 
-                if (authMode === 'signup') {
-                    const { data, error } = await supabase.auth.signUp({ 
-                        email, password,
-                        options: { data: { full_name: name } }
-                    });
-                    
-                    if (error) {
-                        document.getElementById('btnSubmitAuth').innerText = "Зарегистрироваться";
-                        document.getElementById('btnSubmitAuth').disabled = false;
-                        return showAuthError(error.message);
-                    }
-                    
-                    if (data.user && data.user.identities && data.user.identities.length === 0) {
-                        showAuthError("Этот email уже зарегистрирован. Выполните вход.");
+                try {
+                    if (authMode === 'signup') {
+                        const { data, error } = await supabase.auth.signUp({ 
+                            email, password,
+                            options: { data: { full_name: name } }
+                        });
+                        
+                        if (error) throw error;
+                        
+                        if (data.user && data.user.identities && data.user.identities.length === 0) {
+                            showAuthError("Этот email уже зарегистрирован. Нажмите 'Войти'.");
+                        } else {
+                            alert("Успешно! Теперь вы можете войти в систему.");
+                            document.getElementById('btnToggleAuth').click(); 
+                        }
+                        
                     } else {
-                        alert("Успешно! Теперь вы можете войти в систему.");
-                        document.getElementById('btnToggleAuth').click(); 
+                        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+                        
+                        if (error) {
+                            throw new Error("Неверный логин или пароль. (Если вы только переехали на новую базу - нажмите 'Регистрация')");
+                        }
+                        
+                        currentUser = data.user;
+                        authOverlay.style.display = 'none';
+                        updateUserBadge();
+                        await loadFromCloud();
                     }
-                    document.getElementById('btnSubmitAuth').innerText = "Зарегистрироваться";
-                    document.getElementById('btnSubmitAuth').disabled = false;
-                    
-                } else {
-                    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
-                    
-                    if (error) {
-                        document.getElementById('btnSubmitAuth').innerText = "Войти";
-                        document.getElementById('btnSubmitAuth').disabled = false;
-                        return showAuthError("Ошибка входа: Неверный логин или пароль");
-                    }
-                    
-                    currentUser = data.user;
-                    authOverlay.style.display = 'none';
-                    updateUserBadge();
-                    await loadFromCloud();
+                } catch (err) {
+                    showAuthError(err.message);
+                } finally {
+                    btnSubmitAuth.innerText = originalBtnText;
+                    btnSubmitAuth.disabled = false;
                 }
             });
 
@@ -812,6 +823,7 @@
                 await supabase.auth.signOut();
                 window.location.reload();
             };
+            document.getElementById('btnLogoutHeader').addEventListener('click', handleLogout);
             document.getElementById('btnProfileLogout').addEventListener('click', handleLogout);
 
             const WEEKS_PER_BLOCK = 13;
@@ -1043,7 +1055,7 @@
                         return `
                         <div class="flex justify-between items-center bg-white dark:bg-dark-card p-2 sm:p-3 rounded-lg sm:rounded-xl border border-slate-100 dark:border-slate-800/50 shadow-sm w-full gap-2 transition-colors">
                             <div class="flex-1 min-w-0">
-                                <div class="flex flex-wrap items-center text-[8px] sm:text-[10px] text-slate-400 mb-1"><span class="font-bold text-brand-purple mr-1.5 sm:mr-2">Нед. ${t.week}</span> <span class="hidden sm:inline">|</span> <span class="truncate ml-0 sm:ml-2 max-w-full sm:max-w-[150px] w-full sm:w-auto">${g?g.title:'-'}</span></div>
+                                <div class="flex flex-wrap items-center text-[8px] sm:text-[10px] text-slate-400 mb-1"><span class="font-bold text-brand-purple dark:text-indigo-400 mr-1.5 sm:mr-2">Нед. ${t.week}</span> <span class="hidden sm:inline">|</span> <span class="truncate ml-0 sm:ml-2 max-w-full sm:max-w-[150px] w-full sm:w-auto">${g?g.title:'-'}</span></div>
                                 <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 mt-0.5 sm:mt-1"><span class="text-xs sm:text-sm shrink-0">${t.type==='daily'?'☀️':'🎯'}</span> <p class="text-[10px] sm:text-sm font-medium text-slate-700 dark:text-slate-200 truncate flex-1 min-w-0">${t.title}</p><span class="${pConf.color} px-1.5 sm:px-2 py-0.5 rounded text-[7px] sm:text-[8px] font-bold mt-1 sm:mt-0">${pConf.label}</span></div>
                             </div>
                             <button data-id="${t.id}" class="delete-task-btn text-danger hover:text-rose-600 dark:hover:text-rose-400 font-bold text-sm sm:text-lg leading-none shrink-0 p-1.5 sm:p-2">×</button>
@@ -1081,7 +1093,7 @@
                 ws.disabled = false;
                 const selG = appData.goals.find(g => g.id === e.target.value);
                 if(selG) {
-                    let h = `<option value="all" class="font-bold text-brand-purple">⚡ Весь блок ${selG.block} (13 нед.)</option>`;
+                    let h = `<option value="all" class="font-bold text-brand-purple dark:text-indigo-400">⚡ Весь блок ${selG.block} (13 нед.)</option>`;
                     getWeeksForBlock(selG.block).forEach(w => {
                         const dStr = getWeekDates(w).str;
                         h += `<option value="${w}" ${w%WEEKS_PER_BLOCK===0 ? 'class="text-warning font-bold"' : ''}>Неделя ${w} ${w%WEEKS_PER_BLOCK===0?'- РЕФЛЕКСИЯ':''} (${dStr})</option>`;
@@ -1127,7 +1139,6 @@
 
             const getProgColor = (p) => p >= 85 ? {bg:'bg-success', text:'text-success'} : (p >= 51 ? {bg:'bg-warning', text:'text-warning'} : {bg:'bg-danger', text:'text-danger'});
 
-            // ГЛОБАЛЬНЫЙ МЕТОД ДЛЯ ЧЕКБОКСОВ
             window.toggleTask = function(id, dayIndex) {
                 const t = appData.tasks.find(x => x.id === id);
                 if(t) {
@@ -1167,7 +1178,7 @@
                 });
                 miniCal.innerHTML = calHtml;
 
-                // Цель блока (A)
+                // Цель блока
                 const cbGoals = appData.goals.filter(g => g.block === curB);
                 const focusGoal = cbGoals.length > 0 ? cbGoals[0].title : "Цель не задана. Нажмите «Мои цели» для добавления.";
                 document.getElementById('dashBlockAGoal').innerText = focusGoal;
@@ -1183,7 +1194,7 @@
                 document.getElementById('dashBlockABar').className = `h-full transition-all duration-700 ${colorA.bg}`;
                 document.getElementById('dashBlockAPct').className = `text-xs sm:text-sm font-bold ${colorA.text}`;
 
-                // Исполнение недели (B)
+                // Исполнение недели
                 const wProg = getWeekFactProgress(appData.currentWeek);
                 const colorB = getProgColor(wProg.pct);
                 document.getElementById('dashBlockBPct').innerText = wProg.pct + '%';
@@ -1191,7 +1202,7 @@
                 document.getElementById('dashBlockBBar').className = `h-full transition-all duration-700 ${colorB.bg}`;
                 document.getElementById('dashBlockBPct').className = `text-xs sm:text-sm font-bold ${colorB.text}`;
 
-                // Рабочая зона (C)
+                // Рабочая зона
                 let wTasks = [], dTasks = [];
                 cbGoals.forEach(g => {
                     let gTasks = appData.tasks.filter(t => t.goalId === g.id && t.week === appData.currentWeek);
@@ -1202,7 +1213,7 @@
                 const srt = (a, b) => priorityWeights[b.priority || 'medium'] - priorityWeights[a.priority || 'medium'];
                 dTasks.sort(srt); wTasks.sort(srt);
 
-                // Тактики (weekly)
+                // Тактики
                 const tl = document.getElementById('dashTacticsList');
                 const tCount = document.getElementById('dashTacticsCount');
                 let wEarned = wTasks.filter(t => t.done).length;
@@ -1226,10 +1237,10 @@
                     }).join('');
                 }
 
-                // Практики (daily)
+                // Практики
                 const pl = document.getElementById('dashPracticesList');
                 const pTitle = document.getElementById('dashPracticesTitle');
-                const todayIndex = (new Date().getDay() + 6) % 7; // 0=Mon, 6=Sun
+                const todayIndex = (new Date().getDay() + 6) % 7;
                 const dayNames = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
                 pTitle.innerText = `ПРАКТИКИ НА СЕГОДНЯ · ${dayNames[todayIndex]}`;
 
@@ -1252,7 +1263,7 @@
                     }).join('');
                 }
 
-                // Прогресс года (Аккордеон F)
+                // Прогресс года (Аккордеон)
                 const bCont = document.getElementById('dashboardBlocksContainer');
                 let blockSummaries = [];
                 let bh = ``;
@@ -1280,7 +1291,6 @@
                 document.getElementById('accYearSummary').innerText = blockSummaries.join('   ');
             };
 
-            // Аккордеоны: сохранение состояния
             ['accMission', 'accYear'].forEach(id => {
                 const el = document.getElementById(id);
                 if(el) {
@@ -1291,311 +1301,7 @@
                 }
             });
 
-            const renderRewardsTab = () => {
-                document.querySelectorAll('.reward-block-btn').forEach(btn => {
-                    btn.className = parseInt(btn.dataset.block) === activeRewardBlock 
-                        ? "reward-block-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-[10px] sm:text-sm font-bold bg-brand-purple text-white shadow-sm whitespace-nowrap transition-colors outline-none"
-                        : "reward-block-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-[10px] sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-dark-card transition-colors bg-transparent whitespace-nowrap outline-none";
-                });
-                
-                const r = appData.rewards[activeRewardBlock];
-                const tiers = [
-                    { key: 'gold', label: 'Золото', icon: '🥇', colorCls: 'warning', focusCls: 'warning' },
-                    { key: 'silver', label: 'Серебро', icon: '🥈', colorCls: 'slate-500', focusCls: 'slate-400' },
-                    { key: 'bronze', label: 'Бронза', icon: '🥉', colorCls: 'orange-600', focusCls: 'orange-500' }
-                ];
-                
-                let html = '';
-                tiers.forEach(t => {
-                    const data = r[t.key];
-                    const hasImg = data.image ? 'has-image' : '';
-                    const bgStyle = data.image ? `background-image: url('${data.image}')` : '';
-                    
-                    html += `
-                        <div class="bonus-card border-2 border-slate-200 dark:border-slate-800/50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 relative flex flex-col w-full min-w-0 bg-white dark:bg-dark-card transition-colors" id="card_${t.key}">
-                            <div class="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 text-3xl sm:text-4xl">${t.icon}</div>
-                            <h4 class="font-bold text-sm sm:text-lg text-${t.colorCls} dark:text-${t.colorCls} uppercase tracking-wider mb-4 sm:mb-6 border-b border-slate-100 dark:border-slate-800/50 pb-2 sm:pb-3">${t.label}</h4>
-                            
-                            <div class="flex flex-col gap-4 sm:gap-6 items-start flex-1 w-full min-w-0">
-                                <div class="flex-1 space-y-3 sm:space-y-4 w-full min-w-0">
-                                    <div><label class="block text-[8px] sm:text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase mb-1">План: Цель (%)</label><input type="number" id="rew${t.key.charAt(0).toUpperCase() + t.key.slice(1)}Pct" class="w-16 sm:w-24 bg-slate-50 dark:bg-[#0f0f1a] rounded-xl p-2 sm:p-3 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-bold outline-none text-center focus:bg-white dark:focus:bg-dark-card focus:ring-2 focus:ring-${t.focusCls}/50 transition-all" min="1" max="100" value="${data.pct}" oninput="appDataGlobal.rewards[${activeRewardBlock}].${t.key}.pct = parseInt(this.value)||0; saveData(); updateRewardsVisuals();"></div>
-                                    <div><label class="block text-[8px] sm:text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase mb-1">Что я получу</label><textarea id="rew${t.key.charAt(0).toUpperCase() + t.key.slice(1)}Name" class="auto-resize w-full bg-slate-50 dark:bg-[#0f0f1a] rounded-xl p-2 sm:p-3 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm outline-none resize-none min-h-[3rem] sm:min-h-[4rem] focus:bg-white dark:focus:bg-dark-card focus:ring-2 focus:ring-${t.focusCls}/50 transition-all break-words" oninput="appDataGlobal.rewards[${activeRewardBlock}].${t.key}.name = this.value; saveData();">${data.name}</textarea></div>
-                                    <div><label class="block text-[8px] sm:text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase mb-1">Стоимость</label><input type="text" id="rew${t.key.charAt(0).toUpperCase() + t.key.slice(1)}Cost" class="w-full bg-slate-50 dark:bg-[#0f0f1a] rounded-xl p-2 sm:p-3 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm outline-none focus:bg-white dark:focus:bg-dark-card focus:ring-2 focus:ring-${t.focusCls}/50 transition-all break-words" placeholder="Напр. 15 000 руб." value="${data.cost}" oninput="appDataGlobal.rewards[${activeRewardBlock}].${t.key}.cost = this.value; saveData();"></div>
-                                </div>
-                                <div class="w-full h-32 sm:h-48 shrink-0 mt-2 sm:mt-0">
-                                    <div id="rewImg_${t.key}" class="vision-image-card w-full h-full rounded-xl sm:rounded-2xl flex items-center justify-center ${hasImg}" style="${bgStyle}" onclick="if(!event.target.classList.contains('delete-img-btn')) document.getElementById('upRew_${t.key}').click()">
-                                        <input type="file" id="upRew_${t.key}" class="hidden" accept="image/*" onchange="window.uploadRewardImage(event, ${activeRewardBlock}, '${t.key}', 'rewImg_${t.key}')">
-                                        <div class="vision-upload-icon text-xl sm:text-3xl">📸</div>
-                                        <button class="absolute top-1.5 right-1.5 bg-danger hover:bg-rose-600 text-white rounded-full w-5 sm:w-6 h-5 sm:h-6 items-center justify-center delete-img-btn text-[10px] sm:text-xs transition-colors" onclick="window.deleteRewardImage(event, ${activeRewardBlock}, '${t.key}', 'rewImg_${t.key}')">✕</button>
-                                        <span class="empty-text text-slate-400 dark:text-slate-500 font-medium text-[9px] sm:text-xs mt-6 sm:mt-8 absolute pointer-events-none">Фото награды</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                });
-                
-                document.getElementById('rewardsCardsContainer').innerHTML = html;
-                updateRewardsVisuals();
-                setTimeout(triggerResizeAll, 50);
-            };
-
-            const updateRewardsVisuals = () => {
-                const f = getBlockFactProgress(activeRewardBlock);
-                document.getElementById('rewardFactSubtitle').innerText = `Факт: Блок ${activeRewardBlock}`;
-                document.getElementById('rewardFactPct').innerText = `${f.pct}%`;
-                document.getElementById('rewardFactScore').innerText = `${f.earned} / ${f.total} очков`;
-
-                const r = appData.rewards[activeRewardBlock];
-                let hA = 'none';
-                if (f.pct >= r.gold.pct && f.total > 0) hA = 'gold';
-                else if (f.pct >= r.silver.pct && f.total > 0) hA = 'silver';
-                else if (f.pct >= r.bronze.pct && f.total > 0) hA = 'bronze';
-
-                const bdg = document.getElementById('rewardStatusBadge');
-                if (hA === 'gold') { bdg.className = "inline-block w-full md:w-auto text-center px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold bg-warning/10 text-warning border border-warning/30 truncate"; bdg.innerText = "🏆 Золото достигнуто!"; }
-                else if (hA === 'silver') { bdg.className = "inline-block w-full md:w-auto text-center px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold bg-slate-200 dark:bg-slate-700/50 text-slate-700 dark:text-slate-300 border border-slate-400 dark:border-slate-500 truncate"; bdg.innerText = "🏆 Серебро достигнуто!"; }
-                else if (hA === 'bronze') { bdg.className = "inline-block w-full md:w-auto text-center px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold bg-orange-100 dark:bg-orange-500/10 text-orange-700 dark:text-orange-500 border border-orange-300 dark:border-orange-500/30 truncate"; bdg.innerText = "🏆 Бронза достигнута!"; }
-                else { bdg.className = "inline-block w-full md:w-auto text-center px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold bg-slate-800 dark:bg-dark-card text-slate-400 dark:text-slate-500 border border-slate-700 dark:border-slate-700/50 truncate"; bdg.innerText = "Пока не достигнуто"; }
-
-                ['gold', 'silver', 'bronze'].forEach(t => {
-                    const c = document.getElementById('card_' + t);
-                    if(!c) return;
-                    c.classList.remove('achieved', 'bonus-locked');
-                    if (hA === t || (hA==='gold') || (hA==='silver' && t==='bronze')) c.classList.add('achieved');
-                    else c.classList.add('bonus-locked');
-                });
-            };
-
-            document.querySelectorAll('.reward-block-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    activeRewardBlock = parseInt(e.target.dataset.block);
-                    renderRewardsTab();
-                });
-            });
-
-            const renderReflectionTab = () => {
-                const cBN = getBlockFromWeek(appData.currentWeek);
-                document.getElementById('reflectBlockLabel').innerText = `Блок ${cBN}`;
-                document.getElementById('reflectWeekDates').innerText = getWeekDates(appData.currentWeek).str;
-                
-                const ref = getReflection(appData.currentWeek);
-                const iw = document.getElementById('inputWentWell');
-                const it = document.getElementById('inputToImprove');
-                iw.value = ref.wentWell || '';
-                it.value = ref.toImprove || '';
-                setTimeout(() => { autoResizeTextarea(iw); autoResizeTextarea(it); }, 10);
-
-                const prog = getWeekFactProgress(appData.currentWeek).pct;
-                document.getElementById('reflectWeekScorePrc').innerText = `${prog}%`;
-                document.getElementById('reflectWeekScoreBar').style.width = `${prog}%`;
-                document.getElementById('reflectWeekScoreBar').className = `h-full ${getProgColor(prog).bg}`;
-
-                const rC = document.getElementById('ratingContainer');
-                let rh = '';
-                for(let i=1; i<=5; i++) {
-                    const sel = i === ref.rating;
-                    rh += `<button data-val="${i}" class="reflection-rating-btn group flex flex-col items-center gap-1 sm:gap-2 flex-1 outline-none">
-                        <span class="${sel?'text-[10px] sm:text-sm font-bold text-slate-800 dark:text-slate-100':'text-[8px] sm:text-xs font-bold text-slate-400 dark:text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300'} transition-colors">${i}</span>
-                        <div class="w-full h-6 sm:h-10 rounded-full border-2 ${sel?'border-brand-purple dark:border-brand-purple bg-brand-purple shadow-md scale-110 text-white font-bold':'border-slate-300 dark:border-slate-700 bg-white dark:bg-dark-card group-hover:border-slate-400 dark:group-hover:border-slate-500 text-slate-500 dark:text-slate-400 font-normal'} transition-colors flex items-center justify-center text-sm sm:text-xl">${sel?'✓':'◯'}</div>
-                    </button>`;
-                }
-                rC.innerHTML = rh;
-
-                const bDynList = document.getElementById('reflectionBlockDynamicsList');
-                const bWeeks = getWeeksForBlock(cBN);
-                let dHtml = '';
-                bWeeks.forEach(w => {
-                    const wSt = getWeekFactProgress(w);
-                    const wRef = getReflection(w);
-                    let stars = '';
-                    for(let s=1; s<=5; s++) stars += `<span class="${s<=wRef.rating?'text-warning':'text-slate-200 dark:text-slate-700'} text-[10px] sm:text-sm">★</span>`;
-                    
-                    const isCur = w === appData.currentWeek;
-                    dHtml += `
-                    <div class="flex items-center justify-between text-[8px] sm:text-xs p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl border ${isCur?'bg-brand-purple/5 border-brand-purple/20':'bg-slate-50/50 dark:bg-[#0f0f1a]/50 border-slate-100 dark:border-slate-800/50'} mb-1 sm:mb-0 transition-colors">
-                        <span class="font-bold ${isCur?'text-brand-purple':'text-slate-600 dark:text-slate-400'} w-8 sm:w-14 truncate">Нед. ${w}</span>
-                        <div class="flex items-center gap-1 sm:gap-2 flex-1 mx-1.5 sm:mx-2 hidden sm:flex min-w-0">
-                           <div class="flex-1 h-1 sm:h-1.5 bg-slate-200 dark:bg-slate-800/80 rounded-full overflow-hidden">
-                               <div class="h-full ${getProgColor(wSt.pct).bg}" style="width: ${wSt.pct}%"></div>
-                           </div>
-                           <span class="text-[7px] sm:text-[10px] font-bold ${isCur?'text-brand-purple':getProgColor(wSt.pct).text} w-5 sm:w-8 text-right">${wSt.pct}%</span>
-                        </div>
-                        <div class="flex gap-0.5 w-max shrink-0">${stars}</div>
-                    </div>`;
-                });
-                bDynList.innerHTML = dHtml;
-
-                const tC = document.getElementById('reflectionWeekTaskList');
-                const wT = appData.tasks.filter(t => t.week === appData.currentWeek);
-                if(wT.length === 0) tC.innerHTML = '<p class="text-[10px] sm:text-sm text-slate-400 dark:text-slate-500 italic p-3 sm:p-4 text-center">Задач на эту неделю запланировано не было.</p>';
-                else {
-                    tC.innerHTML = wT.map(t => {
-                        const g = appData.goals.find(x => x.id === t.goalId);
-                        let sH = '', bg = 'bg-white dark:bg-dark-card border-slate-200 dark:border-slate-700', tx = 'text-slate-700 dark:text-slate-200';
-                        if(t.type === 'daily') {
-                            const dD = t.days.filter(d=>d).length;
-                            sH = `<span class="text-[8px] sm:text-xs font-bold text-brand-purple px-1.5 sm:px-2 py-0.5 sm:py-1 rounded bg-brand-purple/10 border border-brand-purple/20 whitespace-nowrap">${dD} / 7 дн.</span>`;
-                            if(dD === 7) bg = 'bg-success/10 border-success/30';
-                        } else {
-                            if(t.done) { sH = `<span class="text-[8px] sm:text-xs font-bold text-success px-1.5 sm:px-2 py-0.5 sm:py-1 rounded bg-success/10 border border-success/20 whitespace-nowrap">Выполнено</span>`; bg = 'bg-success/5 border-success/20'; tx = 'text-success line-through opacity-70'; } 
-                            else sH = `<span class="text-[8px] sm:text-xs font-bold text-slate-500 dark:text-slate-400 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 whitespace-nowrap">Не выполнено</span>`;
-                        }
-                        return `<div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border ${bg} gap-2 sm:gap-4 shadow-sm w-full transition-colors">
-                            <div class="flex items-center gap-2 sm:gap-3 min-w-0 w-full sm:w-auto">
-                                <span class="text-sm sm:text-lg shrink-0">${t.type==='daily'?'☀️':'🎯'}</span>
-                                <div class="min-w-0 flex-1">
-                                    <p class="text-[8px] sm:text-xs text-slate-400 dark:text-slate-500 truncate">${g?g.title:'-'}</p>
-                                    <p class="text-[10px] sm:text-sm font-medium ${tx} break-words line-clamp-2">${t.title}</p>
-                                </div>
-                            </div>
-                            <div class="shrink-0 self-start sm:self-auto">${sH}</div>
-                        </div>`;
-                    }).join('');
-                }
-            };
-
-            document.getElementById('ratingContainer').addEventListener('click', e => {
-                const b = e.target.closest('.reflection-rating-btn');
-                if(b) { getReflection(appData.currentWeek).rating = parseInt(b.dataset.val); forceSave(); renderReflectionTab(); }
-            });
-
-            const renderVisionTab = () => {
-                document.getElementById('visionMission').value = appData.vision.mission || '';
-                document.getElementById('visionLong').value = appData.vision.long || '';
-                document.getElementById('vision12Weeks').value = appData.vision.weeks12 || '';
-
-                const photoContainer = document.getElementById('visionPhotoGroupsContainer');
-                let photoHtml = '';
-                const groups = [
-                    { key: 'environment', label: appData.vision.images.environment.label },
-                    { key: 'places', label: appData.vision.images.places.label },
-                    { key: 'futureSelf', label: appData.vision.images.futureSelf.label }
-                ];
-
-                groups.forEach(group => {
-                    const groupData = appData.vision.images[group.key];
-                    photoHtml += `
-                        <div class="bg-white dark:bg-dark-card p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-slate-100 dark:border-slate-800/50 w-full min-w-0 transition-colors">
-                            <input type="text" class="w-full bg-transparent font-bold text-slate-500 dark:text-slate-400 text-[10px] sm:text-sm uppercase tracking-wider mb-3 sm:mb-5 border-b border-slate-100 dark:border-slate-800/50 pb-2 sm:pb-3 outline-none focus:text-brand-purple transition-colors truncate" value="${groupData.label}" oninput="appDataGlobal.vision.images['${group.key}'].label=this.value; saveData()">
-                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 w-full">
-                                ${groupData.slots.map((imgBase64, idx) => {
-                                    const slotId = `vis_${group.key}_${idx}`;
-                                    const inputId = `up_${group.key}_${idx}`;
-                                    const hasImg = imgBase64 ? 'has-image' : '';
-                                    const bgStyle = imgBase64 ? `background-image: url('${imgBase64}')` : '';
-                                    return `
-                                        <div id="${slotId}" class="vision-image-card aspect-square ${hasImg}" style="${bgStyle}" onclick="if(!event.target.closest('.delete-img-btn')) document.getElementById('${inputId}').click()">
-                                            <input type="file" id="${inputId}" class="hidden" accept="image/*" onchange="window.uploadVisionImage(event, '${group.key}', ${idx}, '${slotId}')">
-                                            <div class="vision-upload-icon text-lg sm:text-2xl">📸</div>
-                                            <button class="absolute top-1 sm:top-1.5 right-1 sm:right-1.5 bg-danger hover:bg-rose-600 text-white rounded-full w-4 h-4 sm:w-5 sm:h-5 items-center justify-center delete-img-btn text-[8px] sm:text-xs transition-colors outline-none" onclick="window.deleteVisionImage(event, '${group.key}', ${idx}, '${slotId}')">✕</button>
-                                        </div>
-                                    `;
-                                }).join('')}
-                            </div>
-                        </div>
-                    `;
-                });
-                photoContainer.innerHTML = photoHtml;
-
-                const aColors = ['brand-purple', 'sky-500', 'warning', 'danger'];
-                
-                document.getElementById('visionValuesContainer').innerHTML = appData.vision.values.map((v, i) => `
-                    <div class="bg-slate-50 dark:bg-[#0f0f1a] p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-800/50 w-full transition-colors">
-                        <input type="text" class="vision-input w-full bg-transparent font-bold text-slate-800 dark:text-slate-200 text-[10px] sm:text-sm mb-1 focus:bg-white dark:focus:bg-dark-card focus:ring-2 focus:ring-brand-purple/50 rounded-lg p-1.5 sm:p-2 -mx-1.5 sm:-mx-2 outline-none transition-all truncate" placeholder="Ценность ${i+1}" value="${v.title}" oninput="appDataGlobal.vision.values[${i}].title=this.value; saveData()">
-                        <textarea class="auto-resize vision-input w-full bg-transparent text-[9px] sm:text-sm text-slate-600 dark:text-slate-400 resize-none min-h-[2.5rem] sm:min-h-[3rem] focus:bg-white dark:focus:bg-dark-card focus:ring-2 focus:ring-brand-purple/50 rounded-lg p-1.5 sm:p-2 -mx-1.5 sm:-mx-2 outline-none transition-all mt-0.5 sm:mt-1 break-words" placeholder="Описание..." oninput="appDataGlobal.vision.values[${i}].desc=this.value; saveData()">${v.desc}</textarea>
-                    </div>`).join('');
-                    
-                document.getElementById('visionAnchorsContainer').innerHTML = appData.vision.anchors.map((a, i) => `
-                    <div class="bg-slate-50 dark:bg-[#0f0f1a] p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-800/50 flex flex-col h-full min-h-[6rem] sm:min-h-[10rem] w-full transition-colors">
-                        <input type="text" class="vision-input w-full bg-transparent font-bold text-slate-900 dark:text-slate-200 text-[8px] sm:text-xs uppercase tracking-wider mb-1 sm:mb-2 focus:bg-white dark:focus:bg-dark-card focus:ring-2 focus:ring-brand-purple/50 rounded-lg p-1.5 sm:p-2 -mx-1.5 sm:-mx-2 outline-none transition-all truncate" placeholder="ЯКОРЬ" value="${a.title}" oninput="appDataGlobal.vision.anchors[${i}].title=this.value; saveData()">
-                        <textarea class="auto-resize vision-input w-full flex-1 bg-transparent text-[10px] sm:text-sm text-slate-800 dark:text-slate-400 resize-none min-h-[2.5rem] sm:min-h-[4rem] focus:bg-white dark:focus:bg-dark-card focus:ring-2 focus:ring-brand-purple/50 rounded-lg p-1.5 sm:p-2 -mx-1.5 sm:-mx-2 outline-none transition-all mt-0.5 sm:mt-1 break-words" placeholder="Описание..." oninput="appDataGlobal.vision.anchors[${i}].desc=this.value; saveData()">${a.desc}</textarea>
-                    </div>`).join('');
-
-                const bs = getBlockFactProgress(getBlockFromWeek(appData.currentWeek));
-                document.getElementById('visionBlockProgress').style.width = bs.pct + '%';
-                document.getElementById('visionBlockProgressText').innerText = `Прогресс: ${bs.pct}%`;
-                
-                setTimeout(triggerResizeAll, 50);
-            };
-
-            const switchPage = (targetId) => {
-                document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
-                const tp = document.getElementById(`page-${targetId}`);
-                if(tp) tp.classList.add('active');
-                
-                document.querySelectorAll('.nav-btn').forEach(btn => {
-                    btn.className = btn.dataset.target === targetId 
-                        ? "nav-btn w-full flex items-center px-4 py-3 bg-white dark:bg-brand-purple/10 text-brand-purple rounded-xl shadow-sm text-sm font-semibold transition-colors border border-slate-100 dark:border-brand-purple/20 outline-none"
-                        : "nav-btn w-full flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-[#252542] rounded-xl text-sm font-medium transition-colors border border-transparent outline-none";
-                });
-                
-                const hw = document.getElementById('headerWeekSelectorBlock');
-                if(targetId === 'dashboard' || targetId === 'reflection') {
-                    hw.style.display = 'flex';
-                    if(targetId === 'dashboard') renderDashboard();
-                    if(targetId === 'reflection') renderReflectionTab();
-                } else {
-                    hw.style.display = 'none'; 
-                    if(targetId === 'plan') renderPlanTab();
-                    if(targetId === 'rewards') renderRewardsTab();
-                    if(targetId === 'vision') renderVisionTab();
-                }
-                
-                document.getElementById('mainScrollArea').scrollTo(0,0);
-                
-                if (window.innerWidth < 1024 && !sidebar.classList.contains('-translate-x-full')) {
-                    toggleSidebar();
-                }
-            };
-
             window.switchPage = switchPage;
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.addEventListener('click', () => switchPage(btn.dataset.target)));
-
-            // ФУНКЦИЯ ЗАГРУЗКИ ИЗ ОБЛАКА
-            async function loadFromCloud() {
-                if (!currentUser) return;
-                try {
-                    const { data, error } = await supabase
-                        .from('cloud_saves')
-                        .select('app_data')
-                        .eq('user_id', currentUser.id)
-                        .single();
-                        
-                    if (data && data.app_data) {
-                        appData = data.app_data;
-                        window.appDataGlobal = appData;
-                        
-                        if (!appData.profile) appData.profile = { avatar: '' };
-                        
-                        initCurrentWeek();
-                        updateCalendarUI(); 
-                        renderWeekSelector();
-                        updateAvatars();
-                        
-                        const activeTab = document.querySelector('.page-view.active').id.replace('page-', '');
-                        switchPage(activeTab);
-                        
-                        console.log("Данные успешно загружены из облака!");
-                    }
-                } catch (err) {
-                    console.error("Ошибка при загрузке:", err);
-                }
-            }
-
-            // ПРОВЕРКА СЕССИИ ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
-            supabase.auth.getSession().then(({ data: { session } }) => {
-                if (session) {
-                    currentUser = session.user;
-                    authOverlay.style.display = 'none';
-                    console.log("Сессия восстановлена. ID:", currentUser.id);
-                    
-                    updateUserBadge();
-                    loadFromCloud(); 
-                }
-            });
-
-            updateCalendarUI(); renderWeekSelector(); switchPage('dashboard');
         });
     </script>
 </body>
