@@ -89,8 +89,11 @@
         .delete-img-btn:hover { opacity: 1 !important; }
         .vision-image-card.has-image:hover { filter: brightness(0.95); }
 
+        /* Accordion custom styling */
         details > summary::-webkit-details-marker { display: none; }
     </style>
+    
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 </head>
 <body class="flex h-screen overflow-hidden text-slate-800 dark:text-slate-100 bg-slate-50 dark:bg-dark-bg w-full max-w-full transition-colors duration-300">
     
@@ -216,7 +219,7 @@
                         <div class="flex-1 h-2 bg-slate-800 dark:bg-[#0f0f1a] rounded-full overflow-hidden">
                             <div id="dashBlockBBar" class="h-full transition-all duration-700" style="width: 0%"></div>
                         </div>
-                        <span class="text-xs sm:text-sm font-bold text-white" id="dashBlockBPct">0%</span>
+                        <span class="text-xs sm:text-sm font-bold" id="dashBlockBPct">0%</span>
                     </div>
                     <span class="text-[10px] sm:text-xs text-slate-400 shrink-0 w-full sm:w-auto text-right sm:text-left">Цель: >85%</span>
                 </div>
@@ -226,6 +229,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 w-full mb-6" id="dashboardWorkspace">
+                    
                     <div class="bg-white dark:bg-dark-card rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-slate-100 dark:border-slate-800/50 flex flex-col transition-colors">
                         <div class="flex justify-between items-center mb-5 sm:mb-6 border-b border-slate-100 dark:border-slate-800/50 pb-3">
                             <h4 class="text-[11px] text-slate-400 uppercase tracking-[1.5px] font-semibold">Тактики этой недели</h4>
@@ -368,10 +372,10 @@
                         </div>
                         
                         <div class="bg-slate-50 dark:bg-[#0f0f1a] p-1.5 sm:p-2 rounded-xl border border-slate-200 dark:border-slate-800 flex gap-1.5 sm:gap-2 w-full lg:w-auto overflow-x-auto custom-scrollbar transition-colors">
-                            <button class="reward-block-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-bold bg-brand-purple text-white shadow-sm whitespace-nowrap min-w-max transition-colors outline-none" data-block="1">Блок 1</button>
-                            <button class="reward-block-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-dark-card transition-colors bg-transparent whitespace-nowrap min-w-max outline-none" data-block="2">Блок 2</button>
-                            <button class="reward-block-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-dark-card transition-colors bg-transparent whitespace-nowrap min-w-max outline-none" data-block="3">Блок 3</button>
-                            <button class="reward-block-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-dark-card transition-colors bg-transparent whitespace-nowrap min-w-max outline-none" data-block="4">Блок 4</button>
+                            <button class="reward-block-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-[10px] sm:text-sm font-bold bg-brand-purple text-white shadow-sm whitespace-nowrap min-w-max transition-colors outline-none" data-block="1">Блок 1</button>
+                            <button class="reward-block-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-[10px] sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-dark-card transition-colors bg-transparent whitespace-nowrap min-w-max outline-none" data-block="2">Блок 2</button>
+                            <button class="reward-block-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-[10px] sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-dark-card transition-colors bg-transparent whitespace-nowrap min-w-max outline-none" data-block="3">Блок 3</button>
+                            <button class="reward-block-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-[10px] sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-dark-card transition-colors bg-transparent whitespace-nowrap min-w-max outline-none" data-block="4">Блок 4</button>
                         </div>
                     </div>
 
@@ -395,7 +399,7 @@
             </div>
 
             <div id="page-reflection" class="page-view w-full">
-                <div class="bg-white dark:bg-dark-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 shadow-sm border border-slate-100 dark:border-slate-800/50 mb-6 sm:mb-8 w-full min-w-0 transition-colors">
+                <div class="bg-white dark:bg-dark-card rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-slate-100 dark:border-slate-800/50 mb-6 sm:mb-8 w-full min-w-0 transition-colors">
                     <div class="flex flex-col lg:flex-row justify-between items-start mb-5 sm:mb-10 border-b border-slate-100 dark:border-slate-800/50 pb-4 sm:pb-8 gap-3 sm:gap-4 w-full">
                         <div class="w-full min-w-0">
                             <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-1.5 sm:mb-2">
@@ -750,9 +754,9 @@
                 errorMsg.classList.add('hidden');
             });
 
-            // Обработка формы через submit (теперь работает Enter!)
+            // Обработка формы через submit
             authForm.addEventListener('submit', async (e) => {
-                e.preventDefault(); // Останавливаем перезагрузку страницы
+                e.preventDefault();
                 
                 const email = emailInput.value.trim();
                 const password = passInput.value;
@@ -823,7 +827,6 @@
                 await supabase.auth.signOut();
                 window.location.reload();
             };
-            document.getElementById('btnLogoutHeader').addEventListener('click', handleLogout);
             document.getElementById('btnProfileLogout').addEventListener('click', handleLogout);
 
             const WEEKS_PER_BLOCK = 13;
@@ -1055,7 +1058,7 @@
                         return `
                         <div class="flex justify-between items-center bg-white dark:bg-dark-card p-2 sm:p-3 rounded-lg sm:rounded-xl border border-slate-100 dark:border-slate-800/50 shadow-sm w-full gap-2 transition-colors">
                             <div class="flex-1 min-w-0">
-                                <div class="flex flex-wrap items-center text-[8px] sm:text-[10px] text-slate-400 mb-1"><span class="font-bold text-brand-purple dark:text-indigo-400 mr-1.5 sm:mr-2">Нед. ${t.week}</span> <span class="hidden sm:inline">|</span> <span class="truncate ml-0 sm:ml-2 max-w-full sm:max-w-[150px] w-full sm:w-auto">${g?g.title:'-'}</span></div>
+                                <div class="flex flex-wrap items-center text-[8px] sm:text-[10px] text-slate-400 mb-1"><span class="font-bold text-brand-purple mr-1.5 sm:mr-2">Нед. ${t.week}</span> <span class="hidden sm:inline">|</span> <span class="truncate ml-0 sm:ml-2 max-w-full sm:max-w-[150px] w-full sm:w-auto">${g?g.title:'-'}</span></div>
                                 <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 mt-0.5 sm:mt-1"><span class="text-xs sm:text-sm shrink-0">${t.type==='daily'?'☀️':'🎯'}</span> <p class="text-[10px] sm:text-sm font-medium text-slate-700 dark:text-slate-200 truncate flex-1 min-w-0">${t.title}</p><span class="${pConf.color} px-1.5 sm:px-2 py-0.5 rounded text-[7px] sm:text-[8px] font-bold mt-1 sm:mt-0">${pConf.label}</span></div>
                             </div>
                             <button data-id="${t.id}" class="delete-task-btn text-danger hover:text-rose-600 dark:hover:text-rose-400 font-bold text-sm sm:text-lg leading-none shrink-0 p-1.5 sm:p-2">×</button>
@@ -1154,11 +1157,6 @@
                 updateCalendarUI();
                 const curB = getBlockFromWeek(appData.currentWeek);
                 
-                document.getElementById('dashBlockTitle').innerText = `Фокус Блока ${curB}`;
-                document.getElementById('dashBlockDates').innerText = getBlockDates(curB);
-                document.getElementById('dashWeekTitle').innerText = `Неделя ${appData.currentWeek}`;
-                document.getElementById('dashWeekDates').innerText = getWeekDates(appData.currentWeek).str;
-                
                 document.getElementById('accMissionText').innerText = appData.vision.mission || "Не заполнено → Перейти к Видению";
                 document.getElementById('accVisionText').innerText = appData.vision.weeks12 || "Не заполнено";
 
@@ -1200,7 +1198,7 @@
                 document.getElementById('dashBlockBPct').innerText = wProg.pct + '%';
                 document.getElementById('dashBlockBBar').style.width = wProg.pct + '%';
                 document.getElementById('dashBlockBBar').className = `h-full transition-all duration-700 ${colorB.bg}`;
-                document.getElementById('dashBlockBPct').className = `text-xs sm:text-sm font-bold ${colorB.text}`;
+                document.getElementById('dashBlockBPct').className = `text-xs sm:text-sm font-bold text-white`;
 
                 // Рабочая зона
                 let wTasks = [], dTasks = [];
@@ -1217,7 +1215,7 @@
                 const tl = document.getElementById('dashTacticsList');
                 const tCount = document.getElementById('dashTacticsCount');
                 let wEarned = wTasks.filter(t => t.done).length;
-                tCount.innerText = `${wEarned} / ${wTasks.length} выполнено`;
+                tCount.innerText = `${wEarned} / ${wTasks.length}`;
                 
                 if (wTasks.length === 0) {
                     tl.innerHTML = '<p class="text-xs text-slate-400 dark:text-slate-500 italic mb-4">Нет запланированных тактик.</p>';
@@ -1263,7 +1261,7 @@
                     }).join('');
                 }
 
-                // Прогресс года (Аккордеон)
+                // Прогресс года (Аккордеон F)
                 const bCont = document.getElementById('dashboardBlocksContainer');
                 let blockSummaries = [];
                 let bh = ``;
