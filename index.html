@@ -180,11 +180,15 @@
                         <img id="headerAvatarImg" src="" class="w-full h-full object-cover hidden">
                         <span id="headerAvatarInitials" class="text-[10px] sm:text-xs font-bold uppercase"></span>
                     </div>
-                    <div class="flex flex-col items-start xl:items-end min-w-0">
+                    <div class="flex flex-col items-start min-w-0">
                         <span class="text-[8px] sm:text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider">Вы вошли как</span>
                         <span id="userEmailDisplay" class="text-[10px] sm:text-xs font-bold text-slate-700 dark:text-slate-200 truncate w-full max-w-[120px] sm:max-w-[150px] group-hover:text-brand-purple transition-colors">--</span>
                     </div>
                 </div>
+                <div class="w-px h-8 bg-slate-200 dark:bg-slate-700 hidden xl:block shrink-0"></div>
+                <button id="globalSaveBtn" class="bg-brand-purple hover:bg-indigo-700 dark:bg-indigo-600 dark:hover:bg-indigo-500 text-white px-3 sm:px-5 py-2 sm:py-3 rounded-xl text-xs sm:text-sm font-bold shadow-md transition-all flex items-center shrink-0 justify-center flex-1 xl:flex-none min-w-0 outline-none">
+                    <span class="mr-1 sm:mr-2 text-sm sm:text-lg">💾</span> <span id="globalSaveBtnText" class="truncate">Сохранить</span>
+                </button>
             </div>
         </header>
 
@@ -333,19 +337,19 @@
                             <p class="text-[10px] sm:text-sm text-slate-500 dark:text-slate-400 mt-1 sm:mt-2">Назначьте себе награды для каждого блока.</p>
                         </div>
                         
-                        <div class="bg-slate-50 dark:bg-[#0f0f1a] p-1.5 sm:p-2 rounded-xl border border-slate-200 dark:border-slate-800 flex gap-1.5 sm:gap-2 w-full lg:w-auto transition-colors flex-wrap lg:flex-nowrap">
-                            <button class="reward-block-btn flex-1 px-4 py-2 rounded-lg text-xs sm:text-sm font-bold bg-brand-purple text-white shadow-sm transition-colors outline-none" data-block="1">Блок 1</button>
-                            <button class="reward-block-btn flex-1 px-4 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-dark-card transition-colors bg-transparent outline-none" data-block="2">Блок 2</button>
-                            <button class="reward-block-btn flex-1 px-4 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-dark-card transition-colors bg-transparent outline-none" data-block="3">Блок 3</button>
-                            <button class="reward-block-btn flex-1 px-4 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-dark-card transition-colors bg-transparent outline-none" data-block="4">Блок 4</button>
+                        <div class="bg-slate-50 dark:bg-slate-800/50 p-1.5 sm:p-2 rounded-xl border border-slate-200 dark:border-slate-700 flex gap-1.5 sm:gap-2 w-full lg:w-auto overflow-x-auto custom-scrollbar transition-colors">
+                            <button class="reward-block-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-[10px] sm:text-sm font-bold bg-brand-purple dark:bg-indigo-600 text-white shadow-sm whitespace-nowrap min-w-max transition-colors outline-none" data-block="1">Блок 1</button>
+                            <button class="reward-block-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-[10px] sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors bg-transparent whitespace-nowrap min-w-max outline-none" data-block="2">Блок 2</button>
+                            <button class="reward-block-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-[10px] sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors bg-transparent whitespace-nowrap min-w-max outline-none" data-block="3">Блок 3</button>
+                            <button class="reward-block-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-[10px] sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors bg-transparent whitespace-nowrap min-w-max outline-none" data-block="4">Блок 4</button>
                         </div>
                     </div>
 
-                    <div class="bg-slate-900 dark:bg-[#0f0f1a] rounded-2xl p-5 sm:p-8 text-white mb-6 sm:mb-10 flex flex-col md:flex-row items-start md:items-end justify-between shadow-lg relative overflow-hidden gap-4 sm:gap-6 w-full transition-colors border border-transparent dark:border-slate-800/50">
+                    <div class="bg-slate-900 dark:bg-slate-950 rounded-2xl p-5 sm:p-8 text-white mb-6 sm:mb-10 flex flex-col md:flex-row items-start md:items-end justify-between shadow-lg relative overflow-hidden gap-4 sm:gap-6 w-full transition-colors border border-transparent dark:border-slate-800/50">
                         <div class="relative z-10 w-full min-w-0">
                             <p class="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-2" id="rewardFactSubtitle">Факт: Блок 1</p>
                             <div class="flex items-baseline gap-3 sm:gap-4 flex-wrap">
-                                <h3 class="text-4xl sm:text-6xl font-bold text-success leading-none" id="rewardFactPct">0%</h3>
+                                <h3 class="text-4xl sm:text-6xl font-bold text-emerald-400 leading-none" id="rewardFactPct">0%</h3>
                                 <p class="text-xs sm:text-sm text-slate-300 truncate" id="rewardFactScore">0 / 0 очков</p>
                             </div>
                         </div>
@@ -353,7 +357,7 @@
                             <p class="text-[10px] sm:text-xs text-slate-400 mb-2 hidden md:block">Статус:</p>
                             <div id="rewardStatusBadge" class="inline-block w-full md:w-auto text-center px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold bg-slate-800 text-slate-400 border border-slate-700 truncate">Пока не достигнуто</div>
                         </div>
-                        <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-success/20 to-transparent hidden md:block pointer-events-none"></div>
+                        <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-emerald-900/20 to-transparent hidden md:block pointer-events-none"></div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 w-full" id="rewardsCardsContainer"></div>
@@ -371,40 +375,40 @@
                             <h2 class="text-xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 truncate" id="reflectWeekTitle">Рефлексия недели</h2>
                             <p class="text-[10px] sm:text-sm text-slate-500 dark:text-slate-400 mt-1 sm:mt-2">Оцените результаты и проанализируйте срывы.</p>
                         </div>
-                        <span class="text-[10px] sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-danger font-bold bg-danger/10 border border-danger/20 shrink-0 w-full lg:w-auto text-center truncate">Выполняем до воскресенья</span>
+                        <span class="text-[10px] sm:text-sm px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-rose-500 dark:text-rose-400 font-bold bg-rose-50 dark:bg-rose-500/10 border border-rose-100 dark:border-rose-500/20 shrink-0 w-full lg:w-auto text-center truncate">Выполняем до воскресенья</span>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-10 w-full">
                         <div class="col-span-1 lg:col-span-8 space-y-5 sm:space-y-8 w-full min-w-0">
                             <div>
                                 <label class="block text-[9px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-2 sm:mb-3">1. Что прошло хорошо (успехи)</label>
-                                <textarea id="inputWentWell" class="auto-resize w-full bg-slate-50 dark:bg-[#0f0f1a] rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-slate-200 dark:border-slate-700 min-h-[5rem] sm:min-h-[8rem] text-xs sm:text-sm focus:bg-white dark:focus:bg-dark-card focus:ring-2 focus:ring-brand-purple/50 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600 break-words"></textarea>
+                                <textarea id="inputWentWell" class="auto-resize w-full bg-slate-50 dark:bg-slate-800/50 rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-slate-200 dark:border-slate-700 min-h-[5rem] sm:min-h-[8rem] text-xs sm:text-sm focus:bg-white dark:focus:bg-slate-800 focus:ring-2 focus:ring-brand-purple/50 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500 break-words"></textarea>
                             </div>
                             <div>
                                 <label class="block text-[9px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-2 sm:mb-3">2. Срывы и препятствия (проблемы)</label>
-                                <textarea id="inputToImprove" class="auto-resize w-full bg-slate-50 dark:bg-[#0f0f1a] rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-slate-200 dark:border-slate-700 min-h-[5rem] sm:min-h-[8rem] text-xs sm:text-sm focus:bg-white dark:focus:bg-dark-card focus:ring-2 focus:ring-brand-purple/50 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-600 break-words"></textarea>
+                                <textarea id="inputToImprove" class="auto-resize w-full bg-slate-50 dark:bg-slate-800/50 rounded-xl sm:rounded-2xl p-3 sm:p-6 border border-slate-200 dark:border-slate-700 min-h-[5rem] sm:min-h-[8rem] text-xs sm:text-sm focus:bg-white dark:focus:bg-slate-800 focus:ring-2 focus:ring-brand-purple/50 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-slate-500 break-words"></textarea>
                             </div>
                         </div>
 
                         <div class="col-span-1 lg:col-span-4 space-y-5 sm:space-y-6 w-full min-w-0">
-                            <div class="border border-slate-100 dark:border-slate-800/50 rounded-2xl sm:rounded-3xl p-5 sm:p-8 bg-slate-50/50 dark:bg-[#0f0f1a] flex flex-col items-center text-center w-full transition-colors">
+                            <div class="border border-slate-100 dark:border-slate-800/50 rounded-2xl sm:rounded-3xl p-5 sm:p-8 bg-slate-50/50 dark:bg-slate-800/30 flex flex-col items-center text-center w-full transition-colors">
                                 <p class="text-[10px] sm:text-sm text-slate-500 dark:text-slate-400 mb-1.5 sm:mb-2 font-medium">Общая оценка недели</p>
-                                <h3 class="text-4xl sm:text-6xl font-bold text-brand-purple mb-3 sm:mb-4" id="reflectWeekScorePrc">0%</h3>
-                                <div class="w-full h-1 sm:h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden mb-4 sm:mb-6 max-w-[200px] sm:max-w-none"><div id="reflectWeekScoreBar" class="h-full bg-brand-purple" style="width: 0%"></div></div>
+                                <h3 class="text-4xl sm:text-6xl font-bold text-brand-purple dark:text-indigo-400 mb-3 sm:mb-4" id="reflectWeekScorePrc">0%</h3>
+                                <div class="w-full h-1 sm:h-1.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden mb-4 sm:mb-6 max-w-[200px] sm:max-w-none"><div id="reflectWeekScoreBar" class="h-full bg-brand-purple dark:bg-indigo-500" style="width: 0%"></div></div>
                                 
                                 <label class="block text-[8px] sm:text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-3 sm:mb-4">Рейтинг (Ощущения)</label>
                                 <div class="flex gap-1.5 sm:gap-3 justify-between w-full max-w-[200px] sm:max-w-[250px]" id="ratingContainer"></div>
                             </div>
                             
-                            <div class="border border-slate-100 dark:border-slate-800/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-white dark:bg-dark-card shadow-[0_2px_10px_rgba(0,0,0,0.02)] w-full transition-colors">
-                                <h4 class="text-[9px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-3 sm:mb-4 flex items-center"><span class="text-base sm:text-lg mr-2">📊</span> Динамика</h4>
+                            <div class="border border-slate-100 dark:border-slate-800/50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 bg-white dark:bg-slate-800 shadow-[0_2px_10px_rgba(0,0,0,0.02)] w-full transition-colors">
+                                <h4 class="text-[9px] sm:text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider mb-3 sm:mb-4 flex items-center"><span class="text-base sm:text-lg mr-2">📊</span> Динамика</h4>
                                 <div class="space-y-1.5 sm:space-y-2 max-h-40 sm:max-h-64 overflow-y-auto custom-scrollbar pr-1 sm:pr-2 w-full" id="reflectionBlockDynamicsList"></div>
                             </div>
                         </div>
                     </div>
 
                     <div class="mt-6 sm:mt-12 pt-6 sm:pt-10 border-t border-slate-100 dark:border-slate-800/50 relative overflow-hidden rounded-2xl sm:rounded-3xl w-full">
-                        <div class="absolute inset-0 bg-slate-50/50 dark:bg-[#0f0f1a]/50 opacity-40"></div>
+                        <div class="absolute inset-0 bg-slate-50/50 dark:bg-slate-800/20 opacity-40"></div>
                         <div class="relative z-10 w-full min-w-0">
                             <h3 class="text-base sm:text-xl font-bold text-slate-800 dark:text-slate-100 mb-3 sm:mb-6 flex items-center gap-1.5 sm:gap-3 truncate"><span class="text-lg sm:text-2xl text-brand-purple">✓</span> Задачи этой недели</h3>
                             <div id="reflectionWeekTaskList" class="space-y-2 sm:space-y-3 w-full"></div>
@@ -444,7 +448,7 @@
                                 </div>
                             </div>
 
-                            <div class="bg-white dark:bg-dark-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-slate-100 dark:border-slate-800 flex flex-col gap-1.5 sm:gap-2 relative overflow-hidden h-max w-full transition-colors">
+                            <div class="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-slate-100 dark:border-slate-800 flex flex-col gap-1.5 sm:gap-2 relative overflow-hidden h-max w-full transition-colors">
                                 <h3 class="text-base sm:text-xl font-bold text-slate-800 dark:text-slate-100 mb-1 sm:mb-2 relative z-10">Долгосрочное видение</h3>
                                 <textarea id="visionLong" class="auto-resize vision-input w-full bg-transparent text-slate-800 dark:text-slate-200 text-xs sm:text-base leading-relaxed resize-none placeholder:text-slate-300 dark:placeholder:text-slate-600 relative z-10 min-h-[6rem] sm:min-h-[10rem] outline-none hover:bg-slate-50 dark:hover:bg-[#0f0f1a] focus:bg-slate-50 dark:focus:bg-[#0f0f1a] focus:ring-2 focus:ring-brand-purple/20 rounded-lg sm:rounded-xl p-2 sm:p-4 -mx-2 sm:-mx-4 transition-all break-words" placeholder="«К 2028 году я создал...»"></textarea>
                             </div>
@@ -457,12 +461,12 @@
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-2 gap-5 sm:gap-8 w-full mt-5 sm:mt-8">
-                        <div class="bg-white dark:bg-dark-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-slate-100 dark:border-slate-800 flex flex-col h-max w-full transition-colors">
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-slate-100 dark:border-slate-800 flex flex-col h-max w-full transition-colors">
                             <h3 class="text-sm sm:text-lg font-bold text-slate-800 dark:text-slate-100 mb-3 sm:mb-5 flex items-center"><span class="text-brand-purple mr-1.5 sm:mr-2 text-lg sm:text-xl">✔</span> Основные ценности</h3>
                             <div class="space-y-3 sm:space-y-4 flex-1 w-full" id="visionValuesContainer"></div>
                         </div>
 
-                        <div class="bg-white dark:bg-dark-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-slate-100 dark:border-slate-800 h-max w-full transition-colors">
+                        <div class="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-slate-100 dark:border-slate-800 h-max w-full transition-colors">
                             <h3 class="text-sm sm:text-lg font-bold text-slate-800 dark:text-slate-100 mb-3 sm:mb-5 flex items-center"><span class="text-rose-400 mr-1.5 sm:mr-2 text-lg sm:text-xl">⚓</span> Эмоциональные якори</h3>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 h-full w-full" id="visionAnchorsContainer"></div>
                         </div>
@@ -476,7 +480,7 @@
 
             <div id="page-profile" class="page-view w-full">
                 <div class="max-w-2xl mx-auto w-full min-w-0">
-                    <div class="bg-white dark:bg-dark-card rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-slate-100 dark:border-slate-800 mb-5 sm:mb-8 relative overflow-hidden w-full transition-colors">
+                    <div class="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-5 sm:p-8 md:p-10 shadow-[0_2px_15px_rgba(0,0,0,0.03)] border border-slate-100 dark:border-slate-800 mb-5 sm:mb-8 relative overflow-hidden w-full transition-colors">
                         <div class="absolute top-0 right-0 p-3 sm:p-6 text-3xl sm:text-4xl opacity-10">👤</div>
                         <h2 class="text-xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-1.5 sm:mb-2 relative z-10">Личный профиль</h2>
                         <p class="text-slate-500 dark:text-slate-400 text-[10px] sm:text-sm mb-6 sm:mb-8 relative z-10">Настройки аккаунта, темы и персонализации.</p>
@@ -709,7 +713,7 @@
                 authMode = authMode === 'login' ? 'signup' : 'login';
                 document.getElementById('nameFieldGroup').style.display = authMode === 'signup' ? 'block' : 'none';
                 document.getElementById('authTitle').innerText = authMode === 'signup' ? 'Регистрация' : 'Вход';
-                document.getElementById('authSubtitle').innerText = authMode === 'signup' ? 'У вас пустая база данных. Создайте аккаунт.' : 'Войдите, чтобы синхронизировать прогресс';
+                document.getElementById('authSubtitle').innerText = authMode === 'signup' ? 'Создайте аккаунт для облачной синхронизации' : 'Войдите, чтобы синхронизировать прогресс';
                 btnSubmitAuth.innerText = authMode === 'signup' ? 'Зарегистрироваться' : 'Войти';
                 document.getElementById('btnToggleAuth').innerText = authMode === 'signup' ? 'Уже есть аккаунт? Войти' : 'Нет аккаунта? Регистрация';
                 errorMsg.classList.add('hidden');
@@ -941,16 +945,7 @@
             };
 
             const updateCalendarUI = () => {
-                const today = new Date();
-                const days = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
-                const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'];
-                document.getElementById('headerDateDisplay').innerText = `${days[today.getDay()]}, ${today.getDate()} ${months[today.getMonth()]} ${today.getFullYear()}`;
-                
-                const curB = getBlockFromWeek(appData.currentWeek);
-                document.getElementById('headerWeekBlockDisplay').innerText = `Неделя ${appData.currentWeek} · Блок ${curB}`;
-
-                const di = document.getElementById('startDateInput');
-                if(di) di.value = appData.startDate;
+                document.getElementById('startDateInput').value = appData.startDate || '';
                 if (appData.startDate && document.getElementById('displayStartDate')) {
                     document.getElementById('displayStartDate').innerText = formatDate(new Date(appData.startDate));
                     document.getElementById('displayEndDate').innerText = formatDate(addDays(appData.startDate, 363));
@@ -975,7 +970,7 @@
             const renderPlanTab = () => {
                 document.querySelectorAll('.plan-block-btn').forEach(btn => {
                     btn.className = parseInt(btn.dataset.block) === activePlanBlock 
-                        ? "plan-block-btn flex-1 py-1.5 sm:py-2 px-2 sm:px-1 rounded-lg text-[9px] xl:text-xs font-bold bg-white dark:bg-dark-card text-brand-purple shadow-sm transition-all whitespace-nowrap min-w-[80px] sm:min-w-0"
+                        ? "plan-block-btn flex-1 py-1.5 sm:py-2 px-2 sm:px-1 rounded-lg text-[9px] xl:text-xs font-bold bg-white dark:bg-slate-700 text-brand-purple dark:text-indigo-400 shadow-sm transition-all whitespace-nowrap min-w-[80px] sm:min-w-0"
                         : "plan-block-btn flex-1 py-1.5 sm:py-2 px-2 sm:px-1 rounded-lg text-[9px] xl:text-xs font-bold text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 transition-all bg-transparent whitespace-nowrap min-w-[80px] sm:min-w-0";
                 });
                 document.getElementById('planCurrentBlockLabel').innerText = `Блок ${activePlanBlock}`;
@@ -987,10 +982,10 @@
                 if (aGoals.length === 0) gList.innerHTML = '<p class="text-[10px] sm:text-sm text-slate-400 italic">У вас пока нет целей в этом блоке.</p>';
                 else {
                     gList.innerHTML = aGoals.map(g => `
-                        <div class="flex justify-between items-start bg-slate-50 dark:bg-[#0f0f1a] p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-slate-700 transition-colors w-full">
+                        <div class="flex justify-between items-start bg-slate-50 dark:bg-slate-800/50 p-3 sm:p-4 rounded-xl border border-slate-200 dark:border-slate-700 transition-colors w-full">
                             <div class="flex-1 min-w-0 mr-2 sm:mr-4">
                                 <div class="flex flex-wrap items-center gap-1 sm:gap-2 mb-1.5 sm:mb-2">
-                                    <span class="text-[8px] sm:text-[10px] font-bold bg-brand-purple/10 text-brand-purple px-1.5 sm:px-2 py-0.5 sm:py-1 rounded uppercase tracking-wider whitespace-nowrap">Блок ${g.block}</span>
+                                    <span class="text-[8px] sm:text-[10px] font-bold bg-brand-purple/10 dark:bg-indigo-500/20 text-brand-purple dark:text-indigo-400 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded uppercase tracking-wider whitespace-nowrap">Блок ${g.block}</span>
                                     <span class="text-[8px] sm:text-[10px] text-slate-400 font-medium whitespace-nowrap">${getBlockDates(g.block)}</span>
                                 </div>
                                 <textarea data-id="${g.id}" class="auto-resize goal-edit-input w-full bg-transparent text-[11px] sm:text-sm font-semibold text-slate-800 dark:text-slate-100 leading-snug resize-none overflow-hidden rounded-lg p-1.5 sm:p-2 -mx-1.5 sm:-mx-2 transition-all outline-none min-h-[2.5rem] sm:min-h-[3rem] break-words" rows="2" title="Кликните, чтобы отредактировать">${g.title}</textarea>
@@ -1014,9 +1009,9 @@
                         const g = appData.goals.find(x => x.id === t.goalId);
                         const pConf = priorityConfig[t.priority || 'medium'];
                         return `
-                        <div class="flex justify-between items-center bg-white dark:bg-dark-card p-2 sm:p-3 rounded-lg sm:rounded-xl border border-slate-100 dark:border-slate-800/50 shadow-sm w-full gap-2 transition-colors">
+                        <div class="flex justify-between items-center bg-white dark:bg-slate-800 p-2 sm:p-3 rounded-lg sm:rounded-xl border border-slate-100 dark:border-slate-700 shadow-sm w-full gap-2 transition-colors">
                             <div class="flex-1 min-w-0">
-                                <div class="flex flex-wrap items-center text-[8px] sm:text-[10px] text-slate-400 mb-1"><span class="font-bold text-brand-purple mr-1.5 sm:mr-2">Нед. ${t.week}</span> <span class="hidden sm:inline">|</span> <span class="truncate ml-0 sm:ml-2 max-w-full sm:max-w-[150px] w-full sm:w-auto">${g?g.title:'-'}</span></div>
+                                <div class="flex flex-wrap items-center text-[8px] sm:text-[10px] text-slate-400 mb-1"><span class="font-bold text-brand-purple dark:text-indigo-400 mr-1.5 sm:mr-2">Нед. ${t.week}</span> <span class="hidden sm:inline">|</span> <span class="truncate ml-0 sm:ml-2 max-w-full sm:max-w-[150px] w-full sm:w-auto">${g?g.title:'-'}</span></div>
                                 <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 mt-0.5 sm:mt-1"><span class="text-xs sm:text-sm shrink-0">${t.type==='daily'?'☀️':'🎯'}</span> <p class="text-[10px] sm:text-sm font-medium text-slate-700 dark:text-slate-200 truncate flex-1 min-w-0">${t.title}</p><span class="${pConf.color} px-1.5 sm:px-2 py-0.5 rounded text-[7px] sm:text-[8px] font-bold mt-1 sm:mt-0">${pConf.label}</span></div>
                             </div>
                             <button data-id="${t.id}" class="delete-task-btn text-danger hover:text-rose-600 dark:hover:text-rose-400 font-bold text-sm sm:text-lg leading-none shrink-0 p-1.5 sm:p-2">×</button>
@@ -1112,107 +1107,9 @@
             }
 
             const renderDashboard = () => {
-                updateCalendarUI();
                 const curB = getBlockFromWeek(appData.currentWeek);
                 
-                document.getElementById('accMissionText').innerText = appData.vision.mission || "Не заполнено → Перейти к Видению";
-                document.getElementById('accVisionText').innerText = appData.vision.weeks12 || "Не заполнено";
-
-                const miniCal = document.getElementById('miniCalendarStrip');
-                const daysOfWk = getDaysForWeek(appData.currentWeek);
-                const todayStr = new Date().toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit' });
-                
-                let calHtml = '';
-                daysOfWk.forEach((d, i) => {
-                    const isToday = d.date === todayStr; 
-                    const dayClass = isToday ? 'bg-brand-purple text-white shadow-md' : 'text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-[#0f0f1a]';
-                    calHtml += `<div class="flex flex-col items-center justify-center p-2 sm:p-3 rounded-xl ${dayClass} flex-1 min-w-0 transition-colors cursor-default">
-                        <span class="text-[9px] sm:text-[10px] uppercase font-bold opacity-80 mb-1 sm:mb-2">${d.name}</span>
-                        <span class="text-xs sm:text-sm font-bold">${d.date ? d.date.substring(0,2) : '--'}</span>
-                    </div>`;
-                });
-                miniCal.innerHTML = calHtml;
-
-                const cbGoals = appData.goals.filter(g => g.block === curB);
-                const focusGoal = cbGoals.length > 0 ? cbGoals[0].title : "Цель не задана. Нажмите «Мои цели» для добавления.";
-                document.getElementById('dashBlockAGoal').innerText = focusGoal;
-                document.getElementById('dashBlockASubtitle').innerText = `ФОКУС БЛОКА ${curB} · ${getBlockDates(curB)}`;
-                
-                let weekInBlock = ((appData.currentWeek - 1) % 13) + 1;
-                document.getElementById('dashBlockAWeek').innerText = `Неделя ${weekInBlock} из 12`;
-                
-                const blockAProg = getBlockFactProgress(curB).pct;
-                const colorA = getProgColor(blockAProg);
-                document.getElementById('dashBlockAPct').innerText = blockAProg + '%';
-                document.getElementById('dashBlockABar').style.width = blockAProg + '%';
-                document.getElementById('dashBlockABar').className = `h-full transition-all duration-700 ${colorA.bg}`;
-                document.getElementById('dashBlockAPct').className = `text-xs sm:text-sm font-bold ${colorA.text}`;
-
-                const wProg = getWeekFactProgress(appData.currentWeek);
-                const colorB = getProgColor(wProg.pct);
-                document.getElementById('dashBlockBPct').innerText = wProg.pct + '%';
-                document.getElementById('dashBlockBBar').style.width = wProg.pct + '%';
-                document.getElementById('dashBlockBBar').className = `h-full transition-all duration-700 ${colorB.bg}`;
-                document.getElementById('dashBlockBPct').className = `text-xs sm:text-sm font-bold ${colorB.text}`;
-
-                let wTasks = [], dTasks = [];
-                cbGoals.forEach(g => {
-                    let gTasks = appData.tasks.filter(t => t.goalId === g.id && t.week === appData.currentWeek);
-                    dTasks.push(...gTasks.filter(t => t.type === 'daily'));
-                    wTasks.push(...gTasks.filter(t => t.type === 'weekly'));
-                });
-                
-                const srt = (a, b) => priorityWeights[b.priority || 'medium'] - priorityWeights[a.priority || 'medium'];
-                dTasks.sort(srt); wTasks.sort(srt);
-
-                const tl = document.getElementById('dashTacticsList');
-                const tCount = document.getElementById('dashTacticsCount');
-                let wEarned = wTasks.filter(t => t.done).length;
-                tCount.innerText = `${wEarned} / ${wTasks.length} выполнено`;
-                
-                if (wTasks.length === 0) {
-                    tl.innerHTML = '<p class="text-xs text-slate-400 dark:text-slate-500 italic mb-4">Нет запланированных тактик.</p>';
-                } else {
-                    tl.innerHTML = wTasks.map(t => {
-                        const pConf = priorityConfig[t.priority || 'medium'];
-                        return `
-                        <div class="flex items-start gap-3 cursor-pointer group py-1" onclick="window.toggleTask('${t.id}')">
-                            <div class="w-4 h-4 sm:w-5 sm:h-5 rounded border-2 flex items-center justify-center shrink-0 mt-0.5 transition-colors ${t.done ? 'border-success bg-success text-white' : 'border-slate-300 dark:border-slate-600 group-hover:border-brand-purple'}">
-                                ${t.done ? '<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="3"><path d="M2 6l3 3 5-6"/></svg>' : ''}
-                            </div>
-                            <div class="flex-1 min-w-0 flex flex-col items-start">
-                                <p class="text-[11px] sm:text-sm font-medium ${t.done ? 'text-slate-400 dark:text-slate-500 line-through' : 'text-slate-800 dark:text-slate-100'} break-words leading-tight w-full">${t.title}</p>
-                                <span class="${pConf.color} text-[8px] sm:text-[9px] px-1.5 py-0.5 rounded uppercase font-bold mt-1 inline-block">${pConf.label}</span>
-                            </div>
-                        </div>`;
-                    }).join('');
-                }
-
-                const pl = document.getElementById('dashPracticesList');
-                const pTitle = document.getElementById('dashPracticesTitle');
-                const todayIndex = (new Date().getDay() + 6) % 7; 
-                const dayNames = ['Пн','Вт','Ср','Чт','Пт','Сб','Вс'];
-                pTitle.innerText = `ПРАКТИКИ НА СЕГОДНЯ · ${dayNames[todayIndex]}`;
-
-                if (dTasks.length === 0) {
-                    pl.innerHTML = '<p class="text-xs text-slate-400 dark:text-slate-500 italic mb-4">Нет ежедневных практик.</p>';
-                } else {
-                    pl.innerHTML = dTasks.map(t => {
-                        const pConf = priorityConfig[t.priority || 'medium'];
-                        const isDone = t.days[todayIndex];
-                        return `
-                        <div class="flex items-start gap-3 cursor-pointer group py-1" onclick="window.toggleTask('${t.id}', ${todayIndex})">
-                            <div class="w-4 h-4 sm:w-5 sm:h-5 rounded border-2 flex items-center justify-center shrink-0 mt-0.5 transition-colors ${isDone ? 'border-success bg-success text-white' : 'border-slate-300 dark:border-slate-600 group-hover:border-brand-purple'}">
-                                ${isDone ? '<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="3"><path d="M2 6l3 3 5-6"/></svg>' : ''}
-                            </div>
-                            <div class="flex-1 min-w-0 flex flex-col items-start">
-                                <p class="text-[11px] sm:text-sm font-medium ${isDone ? 'text-slate-400 dark:text-slate-500 line-through' : 'text-slate-800 dark:text-slate-100'} break-words leading-tight w-full">${t.title}</p>
-                                <span class="${pConf.color} text-[8px] sm:text-[9px] px-1.5 py-0.5 rounded uppercase font-bold mt-1 inline-block">${pConf.label}</span>
-                            </div>
-                        </div>`;
-                    }).join('');
-                }
-
+                // Прогресс года (Аккордеон)
                 const bCont = document.getElementById('dashboardBlocksContainer');
                 if(bCont) {
                     let blockSummaries = [];
@@ -1232,27 +1129,320 @@
                                 const wc = getProgColor(wStats.pct);
                                 c = `${wc.bg} text-white border border-transparent`; 
                             }
-                            wHtml += `<div class="w-6 h-6 sm:w-7 sm:h-7 rounded flex items-center justify-center text-[9px] sm:text-[10px] font-bold ${c} ${isCurrent?'ring-2 ring-brand-purple ring-offset-1 dark:ring-offset-dark-card scale-110 z-10':''} cursor-default" title="${iR?'Рефлексия':wStats.pct+'%'}">${w}</div>`;
+                            wHtml += `<div class="w-6 h-6 sm:w-7 sm:h-7 rounded flex items-center justify-center text-[9px] sm:text-[10px] font-bold ${c} ${isCurrent?'ring-2 ring-brand-purple ring-offset-1 dark:ring-offset-slate-900 scale-110 z-10':''} cursor-default" title="${iR?'Рефлексия':wStats.pct+'%'}">${w}</div>`;
                         });
                         wHtml += '</div>';
-                        bh += `<div class="bg-slate-50 dark:bg-[#0f0f1a] rounded-xl p-4 sm:p-5 border border-slate-100 dark:border-slate-800/50 w-full transition-colors"><div class="flex justify-between items-center mb-2 sm:mb-4"><div><h4 class="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-100 uppercase tracking-wide">Блок ${b}</h4><span class="text-[9px] sm:text-[10px] text-slate-400 block">${getBlockDates(b)}</span></div><div class="text-right"><span class="text-sm sm:text-lg font-bold text-brand-purple">${bs.pct}%</span><div class="text-[8px] sm:text-[10px] text-slate-500 dark:text-slate-400">${bs.earned}/${bs.total} очков</div></div></div><div class="pt-3 border-t border-slate-200/60 dark:border-slate-800/50">${wHtml}</div></div>`;
+                        bh += `<div class="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 sm:p-5 border border-slate-100 dark:border-slate-700 w-full transition-colors"><div class="flex justify-between items-center mb-2 sm:mb-4"><div><h4 class="font-bold text-xs sm:text-sm text-slate-800 dark:text-slate-100 uppercase tracking-wide">Блок ${b}</h4><span class="text-[9px] sm:text-[10px] text-slate-400 block">${getBlockDates(b)}</span></div><div class="text-right"><span class="text-sm sm:text-lg font-bold text-brand-purple">${bs.pct}%</span><div class="text-[8px] sm:text-[10px] text-slate-500 dark:text-slate-400">${bs.earned}/${bs.total} очков</div></div></div><div class="pt-3 border-t border-slate-200/60 dark:border-slate-700">${wHtml}</div></div>`;
                     }
                     bCont.innerHTML = bh;
-                    document.getElementById('accYearSummary').innerText = blockSummaries.join('   ');
                 }
             };
 
-            ['accMission', 'accYear'].forEach(id => {
-                const el = document.getElementById(id);
-                if(el) {
-                    if(localStorage.getItem(id) === 'true') el.setAttribute('open', 'open');
-                    el.addEventListener('toggle', () => {
-                        localStorage.setItem(id, el.hasAttribute('open'));
-                    });
+            const renderRewardsTab = () => {
+                document.querySelectorAll('.reward-block-btn').forEach(btn => {
+                    btn.className = parseInt(btn.dataset.block) === activeRewardBlock 
+                        ? "reward-block-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-[10px] sm:text-sm font-bold bg-brand-purple text-white shadow-sm whitespace-nowrap transition-colors outline-none"
+                        : "reward-block-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-[10px] sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors bg-transparent whitespace-nowrap outline-none";
+                });
+                
+                const r = appData.rewards[activeRewardBlock];
+                const tiers = [
+                    { key: 'gold', label: 'Золото', icon: '🥇', colorCls: 'warning', focusCls: 'warning' },
+                    { key: 'silver', label: 'Серебро', icon: '🥈', colorCls: 'slate-500', focusCls: 'slate-400' },
+                    { key: 'bronze', label: 'Бронза', icon: '🥉', colorCls: 'orange-600', focusCls: 'orange-500' }
+                ];
+                
+                let html = '';
+                tiers.forEach(t => {
+                    const data = r[t.key];
+                    const hasImg = data.image ? 'has-image' : '';
+                    const bgStyle = data.image ? `background-image: url('${data.image}')` : '';
+                    
+                    html += `
+                        <div class="bonus-card border-2 border-slate-200 dark:border-slate-700/50 rounded-2xl sm:rounded-3xl p-5 sm:p-6 relative flex flex-col w-full min-w-0 bg-white dark:bg-slate-900 transition-colors" id="card_${t.key}">
+                            <div class="absolute -top-3 -right-3 sm:-top-4 sm:-right-4 text-3xl sm:text-4xl">${t.icon}</div>
+                            <h4 class="font-bold text-sm sm:text-lg text-${t.colorCls} dark:text-${t.colorCls} uppercase tracking-wider mb-4 sm:mb-6 border-b border-slate-100 dark:border-slate-800 pb-2 sm:pb-3">${t.label}</h4>
+                            
+                            <div class="flex flex-col gap-4 sm:gap-6 items-start flex-1 w-full min-w-0">
+                                <div class="flex-1 space-y-3 sm:space-y-4 w-full min-w-0">
+                                    <div><label class="block text-[8px] sm:text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase mb-1">План: Цель (%)</label><input type="number" id="rew${t.key.charAt(0).toUpperCase() + t.key.slice(1)}Pct" class="w-16 sm:w-24 bg-slate-50 dark:bg-[#0f0f1a] rounded-xl p-2 sm:p-3 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-bold outline-none text-center focus:bg-white dark:focus:bg-slate-800 focus:ring-2 focus:ring-${t.focusCls}/50 transition-all" min="1" max="100" value="${data.pct}" oninput="appDataGlobal.rewards[${activeRewardBlock}].${t.key}.pct = parseInt(this.value)||0; saveData(); updateRewardsVisuals();"></div>
+                                    <div><label class="block text-[8px] sm:text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase mb-1">Что я получу</label><textarea id="rew${t.key.charAt(0).toUpperCase() + t.key.slice(1)}Name" class="auto-resize w-full bg-slate-50 dark:bg-[#0f0f1a] rounded-xl p-2 sm:p-3 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm outline-none resize-none min-h-[3rem] sm:min-h-[4rem] focus:bg-white dark:focus:bg-slate-800 focus:ring-2 focus:ring-${t.focusCls}/50 transition-all break-words" oninput="appDataGlobal.rewards[${activeRewardBlock}].${t.key}.name = this.value; saveData();">${data.name}</textarea></div>
+                                    <div><label class="block text-[8px] sm:text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase mb-1">Стоимость</label><input type="text" id="rew${t.key.charAt(0).toUpperCase() + t.key.slice(1)}Cost" class="w-full bg-slate-50 dark:bg-[#0f0f1a] rounded-xl p-2 sm:p-3 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm outline-none focus:bg-white dark:focus:bg-slate-800 focus:ring-2 focus:ring-${t.focusCls}/50 transition-all break-words" placeholder="Напр. 15 000 руб." value="${data.cost}" oninput="appDataGlobal.rewards[${activeRewardBlock}].${t.key}.cost = this.value; saveData();"></div>
+                                </div>
+                                <div class="w-full h-32 sm:h-48 shrink-0 mt-2 sm:mt-0">
+                                    <div id="rewImg_${t.key}" class="vision-image-card w-full h-full rounded-xl sm:rounded-2xl flex items-center justify-center ${hasImg}" style="${bgStyle}" onclick="if(!event.target.classList.contains('delete-img-btn')) document.getElementById('upRew_${t.key}').click()">
+                                        <input type="file" id="upRew_${t.key}" class="hidden" accept="image/*" onchange="window.uploadRewardImage(event, ${activeRewardBlock}, '${t.key}', 'rewImg_${t.key}')">
+                                        <div class="vision-upload-icon text-xl sm:text-3xl">📸</div>
+                                        <button class="absolute top-1.5 right-1.5 bg-danger hover:bg-rose-600 text-white rounded-full w-5 sm:w-6 h-5 sm:h-6 items-center justify-center delete-img-btn text-[10px] sm:text-xs transition-colors" onclick="window.deleteRewardImage(event, ${activeRewardBlock}, '${t.key}', 'rewImg_${t.key}')">✕</button>
+                                        <span class="empty-text text-slate-400 dark:text-slate-500 font-medium text-[9px] sm:text-xs mt-6 sm:mt-8 absolute pointer-events-none">Фото награды</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                document.getElementById('rewardsCardsContainer').innerHTML = html;
+                updateRewardsVisuals();
+                setTimeout(triggerResizeAll, 50);
+            };
+
+            const updateRewardsVisuals = () => {
+                const f = getBlockFactProgress(activeRewardBlock);
+                document.getElementById('rewardFactSubtitle').innerText = `Факт: Блок ${activeRewardBlock}`;
+                document.getElementById('rewardFactPct').innerText = `${f.pct}%`;
+                document.getElementById('rewardFactScore').innerText = `${f.earned} / ${f.total} очков`;
+
+                const r = appData.rewards[activeRewardBlock];
+                let hA = 'none';
+                if (f.pct >= r.gold.pct && f.total > 0) hA = 'gold';
+                else if (f.pct >= r.silver.pct && f.total > 0) hA = 'silver';
+                else if (f.pct >= r.bronze.pct && f.total > 0) hA = 'bronze';
+
+                const bdg = document.getElementById('rewardStatusBadge');
+                if (hA === 'gold') { bdg.className = "inline-block w-full md:w-auto text-center px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold bg-warning/10 text-warning border border-warning/30 truncate"; bdg.innerText = "🏆 Золото достигнуто!"; }
+                else if (hA === 'silver') { bdg.className = "inline-block w-full md:w-auto text-center px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-400 dark:border-slate-600 truncate"; bdg.innerText = "🏆 Серебро достигнуто!"; }
+                else if (hA === 'bronze') { bdg.className = "inline-block w-full md:w-auto text-center px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold bg-orange-100 dark:bg-orange-500/10 text-orange-700 dark:text-orange-500 border border-orange-300 dark:border-orange-500/30 truncate"; bdg.innerText = "🏆 Бронза достигнута!"; }
+                else { bdg.className = "inline-block w-full md:w-auto text-center px-4 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold bg-slate-800 dark:bg-[#0f0f1a] text-slate-400 dark:text-slate-500 border border-slate-700 dark:border-slate-800 truncate"; bdg.innerText = "Пока не достигнуто"; }
+
+                ['gold', 'silver', 'bronze'].forEach(t => {
+                    const c = document.getElementById('card_' + t);
+                    if(!c) return;
+                    c.classList.remove('achieved', 'bonus-locked');
+                    if (hA === t || (hA==='gold') || (hA==='silver' && t==='bronze')) c.classList.add('achieved');
+                    else c.classList.add('bonus-locked');
+                });
+            };
+
+            document.querySelectorAll('.reward-block-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    activeRewardBlock = parseInt(e.target.dataset.block);
+                    renderRewardsTab();
+                });
+            });
+
+            const renderReflectionTab = () => {
+                const cBN = getBlockFromWeek(appData.currentWeek);
+                document.getElementById('reflectBlockLabel').innerText = `Блок ${cBN}`;
+                document.getElementById('reflectWeekDates').innerText = getWeekDates(appData.currentWeek).str;
+                
+                const ref = getReflection(appData.currentWeek);
+                const iw = document.getElementById('inputWentWell');
+                const it = document.getElementById('inputToImprove');
+                iw.value = ref.wentWell || '';
+                it.value = ref.toImprove || '';
+                setTimeout(() => { autoResizeTextarea(iw); autoResizeTextarea(it); }, 10);
+
+                const prog = getWeekFactProgress(appData.currentWeek).pct;
+                document.getElementById('reflectWeekScorePrc').innerText = `${prog}%`;
+                document.getElementById('reflectWeekScoreBar').style.width = `${prog}%`;
+                document.getElementById('reflectWeekScoreBar').className = `h-full ${getProgColor(prog).bg}`;
+
+                const rC = document.getElementById('ratingContainer');
+                let rh = '';
+                for(let i=1; i<=5; i++) {
+                    const sel = i === ref.rating;
+                    rh += `<button data-val="${i}" class="reflection-rating-btn group flex flex-col items-center gap-1 sm:gap-2 flex-1 outline-none">
+                        <span class="${sel?'text-[10px] sm:text-sm font-bold text-slate-800 dark:text-slate-100':'text-[8px] sm:text-xs font-bold text-slate-400 dark:text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300'} transition-colors">${i}</span>
+                        <div class="w-full h-6 sm:h-10 rounded-full border-2 ${sel?'border-brand-purple dark:border-brand-purple bg-brand-purple shadow-md scale-110 text-white font-bold':'border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 group-hover:border-slate-400 dark:group-hover:border-slate-600 text-slate-500 dark:text-slate-400 font-normal'} transition-colors flex items-center justify-center text-sm sm:text-xl">${sel?'✓':'◯'}</div>
+                    </button>`;
+                }
+                rC.innerHTML = rh;
+
+                const bDynList = document.getElementById('reflectionBlockDynamicsList');
+                const bWeeks = getWeeksForBlock(cBN);
+                let dHtml = '';
+                bWeeks.forEach(w => {
+                    const wSt = getWeekFactProgress(w);
+                    const wRef = getReflection(w);
+                    let stars = '';
+                    for(let s=1; s<=5; s++) stars += `<span class="${s<=wRef.rating?'text-warning':'text-slate-200 dark:text-slate-700'} text-[10px] sm:text-sm">★</span>`;
+                    
+                    const isCur = w === appData.currentWeek;
+                    dHtml += `
+                    <div class="flex items-center justify-between text-[8px] sm:text-xs p-1.5 sm:p-2.5 rounded-lg sm:rounded-xl border ${isCur?'bg-brand-purple/5 border-brand-purple/20':'bg-slate-50/50 dark:bg-[#0f0f1a]/50 border-slate-100 dark:border-slate-800/50'} mb-1 sm:mb-0 transition-colors">
+                        <span class="font-bold ${isCur?'text-brand-purple':'text-slate-600 dark:text-slate-400'} w-8 sm:w-14 truncate">Нед. ${w}</span>
+                        <div class="flex items-center gap-1 sm:gap-2 flex-1 mx-1.5 sm:mx-2 hidden sm:flex min-w-0">
+                           <div class="flex-1 h-1 sm:h-1.5 bg-slate-200 dark:bg-slate-800/80 rounded-full overflow-hidden">
+                               <div class="h-full ${getProgColor(wSt.pct).bg}" style="width: ${wSt.pct}%"></div>
+                           </div>
+                           <span class="text-[7px] sm:text-[10px] font-bold ${isCur?'text-brand-purple':getProgColor(wSt.pct).text} w-5 sm:w-8 text-right">${wSt.pct}%</span>
+                        </div>
+                        <div class="flex gap-0.5 w-max shrink-0">${stars}</div>
+                    </div>`;
+                });
+                bDynList.innerHTML = dHtml;
+
+                const tC = document.getElementById('reflectionWeekTaskList');
+                const wT = appData.tasks.filter(t => t.week === appData.currentWeek);
+                if(wT.length === 0) tC.innerHTML = '<p class="text-[10px] sm:text-sm text-slate-400 dark:text-slate-500 italic p-3 sm:p-4 text-center">Задач на эту неделю запланировано не было.</p>';
+                else {
+                    tC.innerHTML = wT.map(t => {
+                        const g = appData.goals.find(x => x.id === t.goalId);
+                        let sH = '', bg = 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700', tx = 'text-slate-700 dark:text-slate-200';
+                        if(t.type === 'daily') {
+                            const dD = t.days.filter(d=>d).length;
+                            sH = `<span class="text-[8px] sm:text-xs font-bold text-brand-purple dark:text-indigo-400 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded bg-brand-purple/10 border border-brand-purple/20 whitespace-nowrap">${dD} / 7 дн.</span>`;
+                            if(dD === 7) bg = 'bg-success/10 border-success/30';
+                        } else {
+                            if(t.done) { sH = `<span class="text-[8px] sm:text-xs font-bold text-success px-1.5 sm:px-2 py-0.5 sm:py-1 rounded bg-success/10 border border-success/20 whitespace-nowrap">Выполнено</span>`; bg = 'bg-success/5 border-success/20'; tx = 'text-success line-through opacity-70'; } 
+                            else sH = `<span class="text-[8px] sm:text-xs font-bold text-slate-500 dark:text-slate-400 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 whitespace-nowrap">Не выполнено</span>`;
+                        }
+                        return `<div class="flex flex-col sm:flex-row sm:items-center justify-between p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border ${bg} gap-2 sm:gap-4 shadow-sm w-full transition-colors">
+                            <div class="flex items-center gap-2 sm:gap-3 min-w-0 w-full sm:w-auto">
+                                <span class="text-sm sm:text-lg shrink-0">${t.type==='daily'?'☀️':'🎯'}</span>
+                                <div class="min-w-0 flex-1">
+                                    <p class="text-[8px] sm:text-xs text-slate-400 dark:text-slate-500 truncate">${g?g.title:'-'}</p>
+                                    <p class="text-[10px] sm:text-sm font-medium ${tx} break-words line-clamp-2">${t.title}</p>
+                                </div>
+                            </div>
+                            <div class="shrink-0 self-start sm:self-auto">${sH}</div>
+                        </div>`;
+                    }).join('');
+                }
+            };
+
+            document.getElementById('ratingContainer').addEventListener('click', e => {
+                const b = e.target.closest('.reflection-rating-btn');
+                if(b) { getReflection(appData.currentWeek).rating = parseInt(b.dataset.val); forceSave(); renderReflectionTab(); }
+            });
+
+            const renderVisionTab = () => {
+                document.getElementById('visionMission').value = appData.vision.mission || '';
+                document.getElementById('visionLong').value = appData.vision.long || '';
+                document.getElementById('vision12Weeks').value = appData.vision.weeks12 || '';
+
+                const photoContainer = document.getElementById('visionPhotoGroupsContainer');
+                let photoHtml = '';
+                const groups = [
+                    { key: 'environment', label: appData.vision.images.environment.label },
+                    { key: 'places', label: appData.vision.images.places.label },
+                    { key: 'futureSelf', label: appData.vision.images.futureSelf.label }
+                ];
+
+                groups.forEach(group => {
+                    const groupData = appData.vision.images[group.key];
+                    photoHtml += `
+                        <div class="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-slate-100 dark:border-slate-800/50 w-full min-w-0 transition-colors">
+                            <input type="text" class="w-full bg-transparent font-bold text-slate-500 dark:text-slate-400 text-[10px] sm:text-sm uppercase tracking-wider mb-3 sm:mb-5 border-b border-slate-100 dark:border-slate-800/50 pb-2 sm:pb-3 outline-none focus:text-brand-purple dark:text-indigo-400 transition-colors truncate" value="${groupData.label}" oninput="appDataGlobal.vision.images['${group.key}'].label=this.value; saveData()">
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 w-full">
+                                ${groupData.slots.map((imgBase64, idx) => {
+                                    const slotId = `vis_${group.key}_${idx}`;
+                                    const inputId = `up_${group.key}_${idx}`;
+                                    const hasImg = imgBase64 ? 'has-image' : '';
+                                    const bgStyle = imgBase64 ? `background-image: url('${imgBase64}')` : '';
+                                    return `
+                                        <div id="${slotId}" class="vision-image-card aspect-square ${hasImg}" style="${bgStyle}" onclick="if(!event.target.closest('.delete-img-btn')) document.getElementById('${inputId}').click()">
+                                            <input type="file" id="${inputId}" class="hidden" accept="image/*" onchange="window.uploadVisionImage(event, '${group.key}', ${idx}, '${slotId}')">
+                                            <div class="vision-upload-icon text-lg sm:text-2xl">📸</div>
+                                            <button class="absolute top-1 sm:top-1.5 right-1 sm:right-1.5 bg-danger hover:bg-rose-600 text-white rounded-full w-4 h-4 sm:w-5 sm:h-5 items-center justify-center delete-img-btn text-[8px] sm:text-xs transition-colors outline-none" onclick="window.deleteVisionImage(event, '${group.key}', ${idx}, '${slotId}')">✕</button>
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    `;
+                });
+                photoContainer.innerHTML = photoHtml;
+
+                const aColors = ['brand-purple', 'sky-500', 'warning', 'danger'];
+                
+                document.getElementById('visionValuesContainer').innerHTML = appData.vision.values.map((v, i) => `
+                    <div class="bg-slate-50 dark:bg-[#0f0f1a] p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-800/50 w-full transition-colors">
+                        <input type="text" class="vision-input w-full bg-transparent font-bold text-slate-800 dark:text-slate-200 text-[10px] sm:text-sm mb-1 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-brand-purple/50 rounded-lg p-1.5 sm:p-2 -mx-1.5 sm:-mx-2 outline-none transition-all truncate" placeholder="Ценность ${i+1}" value="${v.title}" oninput="appDataGlobal.vision.values[${i}].title=this.value; saveData()">
+                        <textarea class="auto-resize vision-input w-full bg-transparent text-[9px] sm:text-sm text-slate-600 dark:text-slate-400 resize-none min-h-[2.5rem] sm:min-h-[3rem] focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-brand-purple/50 rounded-lg p-1.5 sm:p-2 -mx-1.5 sm:-mx-2 outline-none transition-all mt-0.5 sm:mt-1 break-words" placeholder="Описание..." oninput="appDataGlobal.vision.values[${i}].desc=this.value; saveData()">${v.desc}</textarea>
+                    </div>`).join('');
+                    
+                document.getElementById('visionAnchorsContainer').innerHTML = appData.vision.anchors.map((a, i) => `
+                    <div class="bg-slate-50 dark:bg-[#0f0f1a] p-3 sm:p-5 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-800/50 flex flex-col h-full min-h-[6rem] sm:min-h-[10rem] w-full transition-colors">
+                        <input type="text" class="vision-input w-full bg-transparent font-bold text-slate-900 dark:text-slate-200 text-[8px] sm:text-xs uppercase tracking-wider mb-1 sm:mb-2 focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-brand-purple/50 rounded-lg p-1.5 sm:p-2 -mx-1.5 sm:-mx-2 outline-none transition-all truncate" placeholder="ЯКОРЬ" value="${a.title}" oninput="appDataGlobal.vision.anchors[${i}].title=this.value; saveData()">
+                        <textarea class="auto-resize vision-input w-full flex-1 bg-transparent text-[10px] sm:text-sm text-slate-800 dark:text-slate-400 resize-none min-h-[2.5rem] sm:min-h-[4rem] focus:bg-white dark:focus:bg-slate-900 focus:ring-2 focus:ring-brand-purple/50 rounded-lg p-1.5 sm:p-2 -mx-1.5 sm:-mx-2 outline-none transition-all mt-0.5 sm:mt-1 break-words" placeholder="Описание..." oninput="appDataGlobal.vision.anchors[${i}].desc=this.value; saveData()">${a.desc}</textarea>
+                    </div>`).join('');
+
+                const bs = getBlockFactProgress(getBlockFromWeek(appData.currentWeek));
+                document.getElementById('visionBlockProgress').style.width = bs.pct + '%';
+                document.getElementById('visionBlockProgressText').innerText = `Прогресс: ${bs.pct}%`;
+                
+                setTimeout(triggerResizeAll, 50);
+            };
+
+            const switchPage = (targetId) => {
+                document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active'));
+                const tp = document.getElementById(`page-${targetId}`);
+                if(tp) tp.classList.add('active');
+                
+                document.querySelectorAll('.nav-btn').forEach(btn => {
+                    btn.className = btn.dataset.target === targetId 
+                        ? "nav-btn w-full flex items-center px-4 py-3 bg-white dark:bg-brand-purple/10 text-brand-purple rounded-xl shadow-sm text-sm font-semibold transition-colors border border-slate-100 dark:border-brand-purple/20 outline-none"
+                        : "nav-btn w-full flex items-center px-4 py-3 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-[#252542] rounded-xl text-sm font-medium transition-colors border border-transparent outline-none";
+                });
+                
+                const hw = document.getElementById('headerWeekSelectorBlock');
+                if(targetId === 'dashboard' || targetId === 'reflection') {
+                    hw.style.display = 'flex';
+                    if(targetId === 'dashboard') renderDashboard();
+                    if(targetId === 'reflection') renderReflectionTab();
+                } else {
+                    hw.style.display = 'none'; 
+                    if(targetId === 'plan') renderPlanTab();
+                    if(targetId === 'rewards') renderRewardsTab();
+                    if(targetId === 'vision') renderVisionTab();
+                }
+                
+                document.getElementById('mainScrollArea').scrollTo(0,0);
+                
+                if (window.innerWidth < 1024 && !sidebar.classList.contains('-translate-x-full')) {
+                    toggleSidebar();
+                }
+            };
+
+            window.switchPage = switchPage;
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.addEventListener('click', () => switchPage(btn.dataset.target)));
+
+            // ФУНКЦИЯ ЗАГРУЗКИ ИЗ ОБЛАКА
+            async function loadFromCloud() {
+                if (!currentUser) return;
+                try {
+                    const { data, error } = await supabase
+                        .from('cloud_saves')
+                        .select('app_data')
+                        .eq('user_id', currentUser.id)
+                        .single();
+                        
+                    if (data && data.app_data) {
+                        appData = data.app_data;
+                        window.appDataGlobal = appData;
+                        
+                        if (!appData.profile) appData.profile = { avatar: '' };
+                        
+                        initCurrentWeek();
+                        updateCalendarUI(); 
+                        renderWeekSelector();
+                        updateAvatars();
+                        
+                        const activeTab = document.querySelector('.page-view.active').id.replace('page-', '');
+                        switchPage(activeTab);
+                        
+                        console.log("Данные успешно загружены из облака!");
+                    }
+                } catch (err) {
+                    console.error("Ошибка при загрузке:", err);
+                }
+            }
+
+            // ПРОВЕРКА СЕССИИ ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
+            supabase.auth.getSession().then(({ data: { session } }) => {
+                if (session) {
+                    currentUser = session.user;
+                    authOverlay.style.display = 'none';
+                    console.log("Сессия восстановлена. ID:", currentUser.id);
+                    
+                    updateUserBadge();
+                    loadFromCloud(); 
                 }
             });
 
-            window.switchPage = switchPage;
+            updateCalendarUI(); renderWeekSelector(); switchPage('dashboard');
         });
     </script>
 </body>
