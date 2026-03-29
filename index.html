@@ -12,7 +12,7 @@
         }
     </script>
     <script>
-        // Инициализация темы до рендера (чтобы не было моргания белого экрана)
+        // Инициализация темы до рендера
         let savedTheme = localStorage.getItem('app_theme') || 'system';
         if (savedTheme === 'dark' || (savedTheme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
             document.documentElement.classList.add('dark');
@@ -338,27 +338,28 @@
                             <h2 class="text-xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100">Система поощрений</h2>
                             <p class="text-[10px] sm:text-sm text-slate-500 dark:text-slate-400 mt-1 sm:mt-2">Назначьте себе награды для каждого блока.</p>
                         </div>
-                        <div class="bg-slate-50 dark:bg-slate-800/50 p-1 sm:p-2 rounded-lg sm:rounded-xl border border-slate-200 dark:border-slate-700 flex flex-nowrap sm:flex-wrap gap-1 w-full lg:w-auto justify-between overflow-x-auto custom-scrollbar transition-colors">
-                            <button class="reward-block-btn flex-1 sm:flex-none px-2 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-[9px] sm:text-sm font-bold bg-brand-purple dark:bg-indigo-600 text-white shadow-sm whitespace-nowrap min-w-[60px]" data-block="1">Блок 1</button>
-                            <button class="reward-block-btn flex-1 sm:flex-none px-2 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-[9px] sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors bg-transparent whitespace-nowrap min-w-[60px]" data-block="2">Блок 2</button>
-                            <button class="reward-block-btn flex-1 sm:flex-none px-2 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-[9px] sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors bg-transparent whitespace-nowrap min-w-[60px]" data-block="3">Блок 3</button>
-                            <button class="reward-block-btn flex-1 sm:flex-none px-2 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-[9px] sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors bg-transparent whitespace-nowrap min-w-[60px]" data-block="4">Блок 4</button>
+                        
+                        <div class="bg-slate-50 dark:bg-slate-800/50 p-1.5 sm:p-2 rounded-xl border border-slate-200 dark:border-slate-700 flex gap-1.5 sm:gap-2 w-full lg:w-auto overflow-x-auto custom-scrollbar transition-colors">
+                            <button class="reward-block-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-bold bg-brand-purple dark:bg-indigo-600 text-white shadow-sm whitespace-nowrap min-w-max transition-colors" data-block="1">Блок 1</button>
+                            <button class="reward-block-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors bg-transparent whitespace-nowrap min-w-max" data-block="2">Блок 2</button>
+                            <button class="reward-block-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors bg-transparent whitespace-nowrap min-w-max" data-block="3">Блок 3</button>
+                            <button class="reward-block-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors bg-transparent whitespace-nowrap min-w-max" data-block="4">Блок 4</button>
                         </div>
                     </div>
 
-                    <div class="bg-slate-900 dark:bg-slate-950 rounded-xl sm:rounded-2xl p-4 sm:p-6 text-white mb-6 sm:mb-10 flex flex-col md:flex-row items-start md:items-center justify-between shadow-lg relative overflow-hidden gap-3 sm:gap-4 w-full">
+                    <div class="bg-slate-900 dark:bg-slate-950 rounded-2xl p-5 sm:p-8 text-white mb-6 sm:mb-10 flex flex-col md:flex-row items-start md:items-end justify-between shadow-lg relative overflow-hidden gap-4 sm:gap-6 w-full transition-colors">
                         <div class="relative z-10 w-full min-w-0">
-                            <p class="text-[9px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-1" id="rewardFactSubtitle">Факт: Блок 1</p>
-                            <div class="flex items-end gap-2 sm:gap-4 flex-wrap">
-                                <h3 class="text-3xl sm:text-5xl font-bold text-emerald-400" id="rewardFactPct">0%</h3>
-                                <p class="text-[10px] sm:text-sm text-slate-300 pb-0.5 sm:pb-1 truncate" id="rewardFactScore">0 / 0 очков</p>
+                            <p class="text-[10px] sm:text-xs font-bold text-slate-400 uppercase tracking-wider mb-2" id="rewardFactSubtitle">Факт: Блок 1</p>
+                            <div class="flex items-baseline gap-3 sm:gap-4 flex-wrap">
+                                <h3 class="text-4xl sm:text-6xl font-bold text-emerald-400 leading-none" id="rewardFactPct">0%</h3>
+                                <p class="text-xs sm:text-sm text-slate-300 truncate" id="rewardFactScore">0 / 0 очков</p>
                             </div>
                         </div>
-                        <div class="relative z-10 md:text-right w-full md:w-auto">
-                            <p class="text-[10px] sm:text-sm text-slate-300 mb-1.5 sm:mb-2 hidden md:block">Статус:</p>
-                            <div id="rewardStatusBadge" class="inline-block w-full md:w-auto text-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-[10px] sm:text-sm font-bold bg-slate-800 text-slate-400 border border-slate-700 truncate">Пока не достигнуто</div>
+                        <div class="relative z-10 w-full md:w-auto text-left md:text-right flex flex-col justify-end">
+                            <p class="text-[10px] sm:text-xs text-slate-400 mb-2 hidden md:block">Статус:</p>
+                            <div id="rewardStatusBadge" class="inline-block w-full md:w-auto text-center px-4 sm:px-6 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-bold bg-slate-800 text-slate-400 border border-slate-700 truncate">Пока не достигнуто</div>
                         </div>
-                        <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-emerald-900/40 dark:from-emerald-900/20 to-transparent hidden md:block"></div>
+                        <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-emerald-900/20 to-transparent hidden md:block"></div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 w-full" id="rewardsCardsContainer"></div>
@@ -487,34 +488,34 @@
                             
                             <div class="w-full">
                                 <label class="block text-[9px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-2 sm:mb-3 ml-1">Тема оформления</label>
-                                <div class="flex bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700 p-1 w-full transition-colors">
+                                <div class="flex bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700 p-1.5 w-full transition-colors">
                                     <button class="theme-btn flex-1 py-2 sm:py-2.5 text-[10px] sm:text-xs font-medium rounded-lg transition-all" data-theme="light">☀️ Светлая</button>
                                     <button class="theme-btn flex-1 py-2 sm:py-2.5 text-[10px] sm:text-xs font-medium rounded-lg transition-all" data-theme="dark">🌙 Темная</button>
                                     <button class="theme-btn flex-1 py-2 sm:py-2.5 text-[10px] sm:text-xs font-medium rounded-lg transition-all" data-theme="system">💻 Системная</button>
                                 </div>
                             </div>
 
-                            <div class="w-full pt-4 border-t border-slate-100 dark:border-slate-800">
+                            <div class="w-full pt-4 sm:pt-6 border-t border-slate-100 dark:border-slate-800">
                                 <label class="block text-[9px] sm:text-xs font-bold text-brand-purple dark:text-indigo-400 uppercase mb-3 ml-1">Ваш Аватар</label>
-                                <div class="flex items-center gap-4 sm:gap-6">
-                                    <div class="relative w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 overflow-hidden group cursor-pointer shrink-0 transition-colors" onclick="document.getElementById('avatarUploadInput').click()">
+                                <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
+                                    <div class="relative w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-slate-100 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 overflow-hidden group cursor-pointer shrink-0 transition-colors" onclick="document.getElementById('avatarUploadInput').click()">
                                         <img id="profileAvatarImg" src="" class="w-full h-full object-cover hidden">
                                         <div class="absolute inset-0 flex items-center justify-center bg-brand-purple/10 dark:bg-indigo-500/20 text-brand-purple dark:text-indigo-400" id="profileAvatarFallback">
-                                            <span class="text-xl sm:text-2xl font-bold uppercase" id="profileAvatarInitials"></span>
+                                            <span class="text-2xl sm:text-3xl font-bold uppercase" id="profileAvatarInitials"></span>
                                         </div>
                                         <div class="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                                            <span class="text-white text-[9px] sm:text-[10px] font-bold uppercase tracking-wider">Изменить</span>
+                                            <span class="text-white text-[10px] sm:text-xs font-bold uppercase tracking-wider">Изменить</span>
                                         </div>
                                         <input type="file" id="avatarUploadInput" class="hidden" accept="image/*">
                                     </div>
-                                    <div class="flex-1 min-w-0">
-                                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-tight">Нажмите на круг, чтобы загрузить фото.<br><span class="text-[9px] sm:text-[10px]">Рекомендуется квадратное изображение. Оно будет сохранено в облаке.</span></p>
-                                        <button class="text-[10px] sm:text-xs font-bold text-rose-500 hover:text-rose-600 dark:text-rose-400 dark:hover:text-rose-300 mt-2 transition-colors" onclick="window.deleteAvatar()">Удалить аватар</button>
+                                    <div class="flex-1 min-w-0 text-center sm:text-left">
+                                        <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-tight mb-2 sm:mb-3">Нажмите на круг, чтобы загрузить фото.<br><span class="text-[10px] sm:text-xs">Рекомендуется квадратное изображение. Оно будет сохранено в вашем облаке.</span></p>
+                                        <button class="text-[10px] sm:text-xs font-bold text-rose-500 hover:text-rose-600 dark:text-rose-400 dark:hover:text-rose-300 transition-colors px-3 py-1.5 bg-rose-50 dark:bg-rose-500/10 rounded-lg" onclick="window.deleteAvatar()">Удалить аватар</button>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="w-full pt-4 border-t border-slate-100 dark:border-slate-800">
+                            <div class="w-full pt-4 sm:pt-6 border-t border-slate-100 dark:border-slate-800">
                                 <label class="block text-[9px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 uppercase mb-1.5 sm:mb-2 ml-1">Email аккаунта</label>
                                 <input type="text" id="profileEmail" class="w-full bg-slate-50 dark:bg-slate-800/50 rounded-xl p-3 sm:p-4 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm font-medium text-slate-500 dark:text-slate-500 cursor-not-allowed truncate transition-colors" disabled value="--">
                             </div>
@@ -554,10 +555,10 @@
             themeBtns.forEach(btn => {
                 if (btn.dataset.theme === theme) {
                     btn.classList.add('bg-white', 'dark:bg-slate-700', 'shadow-sm', 'text-brand-purple', 'dark:text-indigo-400', 'font-bold');
-                    btn.classList.remove('text-slate-500', 'dark:text-slate-400');
+                    btn.classList.remove('text-slate-500', 'dark:text-slate-400', 'hover:bg-slate-200', 'dark:hover:bg-slate-700/50');
                 } else {
                     btn.classList.remove('bg-white', 'dark:bg-slate-700', 'shadow-sm', 'text-brand-purple', 'dark:text-indigo-400', 'font-bold');
-                    btn.classList.add('text-slate-500', 'dark:text-slate-400');
+                    btn.classList.add('text-slate-500', 'dark:text-slate-400', 'hover:bg-slate-200', 'dark:hover:bg-slate-700/50');
                 }
             });
         };
@@ -802,10 +803,14 @@
                     btn.innerHTML = `<span class="mr-1.5 sm:mr-2">✓</span> Сохранено!`;
                     btn.classList.replace('bg-brand-purple', 'bg-emerald-500');
                     btn.classList.replace('hover:bg-indigo-700', 'hover:bg-emerald-600');
+                    btn.classList.replace('dark:bg-indigo-600', 'dark:bg-emerald-600');
+                    btn.classList.replace('dark:hover:bg-indigo-500', 'dark:hover:bg-emerald-500');
                     setTimeout(() => {
                         btn.innerHTML = originalText;
                         btn.classList.replace('bg-emerald-500', 'bg-brand-purple');
                         btn.classList.replace('hover:bg-emerald-600', 'hover:bg-indigo-700');
+                        btn.classList.replace('dark:bg-emerald-600', 'dark:bg-indigo-600');
+                        btn.classList.replace('dark:hover:bg-emerald-500', 'dark:hover:bg-indigo-500');
                     }, 2000);
                 }
             });
@@ -868,7 +873,7 @@
             let appData = loadData();
             window.appDataGlobal = appData; 
             
-            // ЛОГИКА АВАТАРА (через cloud_saves)
+            // ЛОГИКА АВАТАРА
             const updateAvatars = () => {
                 const base64 = appData.profile.avatar;
                 const hImg = document.getElementById('headerAvatarImg');
@@ -1022,7 +1027,7 @@
                         const isCurW = cZero >= sZero && cZero <= eZero;
                         const isTod = cZero === tZero;
                         let bg = isCurW ? 'bg-brand-purple dark:bg-indigo-600 text-white shadow-md' : (isTod ? 'bg-white dark:bg-slate-800 text-brand-purple dark:text-indigo-400 border-brand-purple/30 dark:border-indigo-500/30' : 'bg-slate-50 dark:bg-slate-800 text-slate-400 border-slate-100 dark:border-slate-700');
-                        h += `<div class="flex flex-col items-center justify-center flex-1 h-9 sm:h-10 md:h-14 rounded-lg border cursor-default ${bg}">
+                        h += `<div class="flex flex-col items-center justify-center flex-1 h-9 sm:h-10 md:h-14 rounded-lg border cursor-default ${bg} transition-colors">
                             <span class="text-[5px] sm:text-[7px] md:text-[9px] font-bold uppercase opacity-80">${dMap[cur.getDay()]}</span>
                             <span class="text-[8px] sm:text-[10px] md:text-sm font-bold leading-tight ${isTod && !isCurW ? 'text-brand-purple dark:text-indigo-400' : ''}">${i}</span>
                             ${isTod ? `<div class="w-0.5 h-0.5 sm:w-1 sm:h-1 rounded-full mt-0.5 ${isCurW ? 'bg-white' : 'bg-brand-purple dark:bg-indigo-400'}"></div>` : ''}
@@ -1161,8 +1166,8 @@
             const renderRewardsTab = () => {
                 document.querySelectorAll('.reward-block-btn').forEach(btn => {
                     btn.className = parseInt(btn.dataset.block) === activeRewardBlock 
-                        ? "reward-block-btn flex-1 sm:flex-none px-2 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-[9px] sm:text-sm font-bold bg-brand-purple dark:bg-indigo-600 text-white shadow-sm whitespace-nowrap min-w-[60px]"
-                        : "reward-block-btn flex-1 sm:flex-none px-2 sm:px-4 py-1.5 sm:py-2 rounded-md sm:rounded-lg text-[9px] sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors bg-transparent whitespace-nowrap min-w-[60px]";
+                        ? "reward-block-btn flex-1 lg:flex-none px-4 py-2 rounded-lg text-xs sm:text-sm font-bold bg-brand-purple dark:bg-indigo-600 text-white shadow-sm whitespace-nowrap min-w-max transition-colors"
+                        : "reward-block-btn flex-1 lg:flex-none px-4 py-2 rounded-lg text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors bg-transparent whitespace-nowrap min-w-max";
                 });
                 
                 const r = appData.rewards[activeRewardBlock];
@@ -1194,7 +1199,7 @@
                                         <input type="file" id="upRew_${t.key}" class="hidden" accept="image/*" onchange="window.uploadRewardImage(event, ${activeRewardBlock}, '${t.key}', 'rewImg_${t.key}')">
                                         <div class="vision-upload-icon text-xl sm:text-3xl">📸</div>
                                         <button class="absolute top-1.5 right-1.5 bg-rose-500 hover:bg-rose-600 text-white rounded-full w-5 sm:w-6 h-5 sm:h-6 items-center justify-center delete-img-btn text-[10px] sm:text-xs transition-colors" onclick="window.deleteRewardImage(event, ${activeRewardBlock}, '${t.key}', 'rewImg_${t.key}')">✕</button>
-                                        <span class="empty-text text-slate-300 dark:text-slate-500 font-medium text-[9px] sm:text-xs mt-6 sm:mt-8 absolute pointer-events-none">Фото награды</span>
+                                        <span class="empty-text text-slate-400 dark:text-slate-400 font-medium text-[9px] sm:text-xs mt-6 sm:mt-8 absolute pointer-events-none">Фото награды</span>
                                     </div>
                                 </div>
                             </div>
@@ -1260,7 +1265,7 @@
                 const cWDays = getDaysForWeek(appData.currentWeek);
 
                 if (cbGoals.length === 0) {
-                    gc.innerHTML = `<div class="bg-indigo-50/50 dark:bg-indigo-900/20 rounded-2xl sm:rounded-3xl p-5 sm:p-10 text-center border border-indigo-100 dark:border-indigo-800/50 border-dashed w-full"><span class="text-2xl sm:text-4xl block mb-2 sm:mb-3">🎯</span><h3 class="text-xs sm:text-lg font-bold text-indigo-900 dark:text-indigo-300 mb-1 sm:mb-2">Целей на этот квартал пока нет</h3></div>`;
+                    gc.innerHTML = `<div class="bg-indigo-50/50 dark:bg-indigo-900/20 rounded-2xl sm:rounded-3xl p-5 sm:p-10 text-center border border-indigo-100 dark:border-indigo-800/50 border-dashed w-full transition-colors"><span class="text-2xl sm:text-4xl block mb-2 sm:mb-3">🎯</span><h3 class="text-xs sm:text-lg font-bold text-indigo-900 dark:text-indigo-300 mb-1 sm:mb-2">Целей на этот квартал пока нет</h3></div>`;
                 } else {
                     let h = '';
                     cbGoals.forEach((g) => {
@@ -1499,7 +1504,7 @@
                     const groupData = appData.vision.images[group.key];
                     photoHtml += `
                         <div class="bg-white dark:bg-slate-900 p-4 sm:p-6 rounded-2xl sm:rounded-3xl shadow-[0_2px_10px_rgba(0,0,0,0.02)] border border-slate-100 dark:border-slate-800 w-full min-w-0 transition-colors">
-                            <input type="text" class="w-full bg-transparent font-bold text-slate-500 dark:text-slate-400 text-[10px] sm:text-sm uppercase tracking-wider mb-3 sm:mb-5 border-b border-slate-100 dark:border-slate-800 pb-2 sm:pb-3 outline-none focus:text-brand-purple dark:focus:text-indigo-400 transition-colors truncate" value="${groupData.label}" oninput="appDataGlobal.vision.images['${group.key}'].label=this.value; saveData()">
+                            <input type="text" class="w-full bg-transparent font-bold text-slate-500 dark:text-slate-400 text-[10px] sm:text-sm uppercase tracking-wider mb-3 sm:mb-5 border-b border-slate-100 dark:border-slate-800 pb-2 sm:pb-3 outline-none focus:text-brand-purple dark:text-indigo-400 transition-colors truncate" value="${groupData.label}" oninput="appDataGlobal.vision.images['${group.key}'].label=this.value; saveData()">
                             <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-4 w-full">
                                 ${groupData.slots.map((imgBase64, idx) => {
                                     const slotId = `vis_${group.key}_${idx}`;
